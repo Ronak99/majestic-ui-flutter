@@ -36,7 +36,7 @@ jobs:
           git config --global user.name Ronak99
           git config --global user.email punase.ronak99@gmail.com
           git add /home/runner/work/majesticui-flutter/majesticui-flutter/all_widgets.json
-          git commit -m "Update all_widgets.json on commit to master"
+          git commit -m "BOT COMMIT: Update all_widgets.json on commit to master"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
