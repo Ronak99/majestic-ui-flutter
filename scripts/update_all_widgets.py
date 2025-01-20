@@ -1,7 +1,7 @@
 import os
 import json
 
-REPO_PATH = "majesticui-flutter"
+REPO_PATH = "/home/runner/work/majesticui-flutter/majesticui-flutter/"
 WIDGETS = ["majestic_card", "majestic_appbar"]
 OUTPUT_FILE = os.path.join(REPO_PATH, "all_widgets.json")
 
