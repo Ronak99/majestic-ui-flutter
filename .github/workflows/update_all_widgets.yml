@@ -35,7 +35,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "<>"
-          git add majesticui-flutter/all_widgets.json
+          git add /home/runner/work/majesticui-flutter/majesticui-flutter/all_widgets.json
           git commit -m "Update all_widgets.json on commit to master"
           git push
         env:
