@@ -110,7 +110,7 @@ packages:
   majestic_card:
     dependency: "direct main"
     description:
-      path: "../majestic_card"
+      path: "../src/majestic_card"
       relative: true
     source: path
     version: "0.0.1"
