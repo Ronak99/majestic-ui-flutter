@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// test
+// details about magestic card
 class MajesticCard extends StatelessWidget {
   final double? height;
   final double? width;
