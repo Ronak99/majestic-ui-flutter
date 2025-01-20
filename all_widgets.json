@@ -1,0 +1,13 @@
+[
+  {
+    "name": "card",
+    "files": [
+      {
+        "name": "majestic_card.dart",
+        "dir": "majestic/ui",
+        "content": "import 'package:flutter/material.dart';\n\nclass MagesticCard extends StatelessWidget {\n  final double? height;\n  final double? width;\n  const MagesticCard({\n    super.key,\n    this.height,\n    this.width,\n  });\n\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      height: height,\n      width: width,\n      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),\n      decoration: BoxDecoration(\n        boxShadow: const [\n          BoxShadow(\n            blurRadius: 1.5,\n            blurStyle: BlurStyle.normal,\n            color: Colors.black38,\n            offset: Offset(0, .5),\n          ),\n        ],\n        // border: Border.all(color: Colors.grey),\n        borderRadius: BorderRadius.circular(12),\n        color: Colors.white,\n      ),\n    );\n  }\n}\n"
+      }
+    ],
+    "type": "ui"
+  }
+]
