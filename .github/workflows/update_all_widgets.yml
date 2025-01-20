@@ -33,8 +33,8 @@ jobs:
       # Step 5: Commit and push changes
       - name: Commit and Push Changes
         run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "<>"
+          git config --global user.name Ronak99
+          git config --global user.email punase.ronak99@gmail.com
           git add /home/runner/work/majesticui-flutter/majesticui-flutter/all_widgets.json
           git commit -m "Update all_widgets.json on commit to master"
           git push
