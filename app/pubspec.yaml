@@ -36,6 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   majestic_card:
     path: "../src/majestic_card"
+  majestic_avatar:
+    path: "../src/majestic_avatar"
+  go_router: ^14.6.3
 
 dev_dependencies:
   flutter_test:

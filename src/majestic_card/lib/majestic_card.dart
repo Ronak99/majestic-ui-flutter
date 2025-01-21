@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class MajesticCard extends StatelessWidget {
   final double? height;
   final double? width;
+  final EdgeInsets? padding;
   final Widget? child;
   const MajesticCard({
     super.key,
     this.height,
+    this.padding = EdgeInsets.zero,
     this.width,
     this.child,
   });
@@ -17,7 +19,7 @@ class MajesticCard extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
+      padding: padding,
       decoration: BoxDecoration(
         boxShadow: const [
           BoxShadow(
