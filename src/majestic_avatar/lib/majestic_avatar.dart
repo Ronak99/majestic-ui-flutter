@@ -4,7 +4,15 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:majestic_avatar/utils/utils.dart';
+
+Color _generateRandomColor() {
+  return Color.fromARGB(
+    255,
+    Random().nextInt(256),
+    Random().nextInt(256),
+    Random().nextInt(256),
+  );
+}
 
 /*
 RULES:
@@ -57,7 +65,7 @@ class _CachedImageState extends State<MajesticAvatar> {
   @override
   void initState() {
     super.initState();
-    _color = widget.background ?? Utils.generateRandomColor();
+    _color = widget.background ?? _generateRandomColor();
   }
 
   Widget _baseBackground(String? text) {
