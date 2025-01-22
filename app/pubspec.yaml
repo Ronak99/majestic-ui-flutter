@@ -38,6 +38,8 @@ dependencies:
     path: "../src/majestic_card"
   majestic_avatar:
     path: "../src/majestic_avatar"
+  majestic_animated_button:
+    path: "../src/majestic_animated_button"
   go_router: ^14.6.3
 
 dev_dependencies:
