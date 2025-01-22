@@ -1,6 +1,9 @@
 [
   {
     "name": "avatar",
+    "label": "Avatar",
+    "description": "An avatar with fallback text",
+    "usage": "import 'package:flutter/material.dart';\nimport 'package:majestic_avatar/majestic_avatar.dart';\n\nclass MajesticAvatarDemo extends StatelessWidget {\n  const MajesticAvatarDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      body: Center(\n        child: Column(\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            MajesticAvatar(\n              \"https://www.picsum.photos/50\",\n              isRound: true,\n              height: 50,\n              width: 50,\n              radius: 2,\n              text: \"Ronak\",\n            ),\n            Text(\"ronak\"),\n          ],\n        ),\n      ),\n    );\n  }\n}\n",
     "files": [
       {
         "name": "majestic_avatar.dart",
@@ -15,6 +18,9 @@
   },
   {
     "name": "animated_button",
+    "label": "Animated Button",
+    "description": "Beautiful animated button.",
+    "usage": "import 'package:flutter/material.dart';\nimport 'package:majestic_animated_button/majestic_animated_button.dart';\n\nclass MajesticAnimatedButtonDemo extends StatelessWidget {\n  const MajesticAnimatedButtonDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Center(\n        child: MajesticAnimatedButton(\n          child: const Icon(\n            Icons.person,\n            color: Colors.white,\n          ),\n          onPressed: () {},\n        ),\n      ),\n    );\n  }\n}\n",
     "files": [
       {
         "name": "majestic_animated_button.dart",
