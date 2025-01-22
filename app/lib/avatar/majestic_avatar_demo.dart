@@ -12,7 +12,7 @@ class MajesticAvatarDemo extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             MajesticAvatar(
-              null,
+              "https://www.picsum.photos/50",
               isRound: true,
               height: 50,
               width: 50,
