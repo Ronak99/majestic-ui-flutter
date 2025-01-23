@@ -3,10 +3,8 @@ import json
 import yaml
 import re
 
-REPO_PATH = "./"
-# REPO_PATH = "/home/runner/work/majesticui-flutter/majesticui-flutter/"
-WIDGETS = ["majestic_card", "majestic_appbar"]
-OUTPUT_FILE = os.path.join(REPO_PATH, "all_widgets.json")
+# REPO_PATH = "./"
+REPO_PATH = "/home/runner/work/majesticui-flutter/majesticui-flutter/"
 SRC_PATH = os.path.join(REPO_PATH, 'src')
 
 
@@ -72,12 +70,9 @@ def scan_dart_projects(src_path):
 
 def update_all_widgets():
     """Generates all_widgets.json by aggregating main.dart content."""
-
-    # Adjust this path to your src folder
-    src_path = './src'
     
     # Scan projects and generate JSON
-    projects_data = scan_dart_projects(src_path)
+    projects_data = scan_dart_projects(SRC_PATH)
     
     # Write to output file
     with open('all_widgets.json', 'w') as f:
