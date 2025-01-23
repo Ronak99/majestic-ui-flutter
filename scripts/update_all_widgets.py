@@ -1,49 +1,89 @@
 import os
 import json
+import yaml
+import re
 
-REPO_PATH = "/home/runner/work/majesticui-flutter/majesticui-flutter/"
+REPO_PATH = "./"
+# REPO_PATH = "/home/runner/work/majesticui-flutter/majesticui-flutter/"
 WIDGETS = ["majestic_card", "majestic_appbar"]
 OUTPUT_FILE = os.path.join(REPO_PATH, "all_widgets.json")
+SRC_PATH = os.path.join(REPO_PATH, 'src')
 
-def read_main_dart(widget_name):
-    """Reads content from main.dart in the widget directory."""
-    lib_path = os.path.join(REPO_PATH, widget_name, "lib", "main.dart")
-    if os.path.exists(lib_path):
-        with open(lib_path, "r", encoding="utf-8") as f:
-            return f.read()
-    return None
+
+def scan_dart_projects(src_path):
+    projects = []
+
+    # Iterate through directories in src folder
+    for project_dir in os.listdir(src_path):
+        project_path = os.path.join(src_path, project_dir)
+        
+        # Skip if not a directory
+        if not os.path.isdir(project_path):
+            continue
+
+        # Path to pubspec.yaml
+        pubspec_path = os.path.join(project_path, 'pubspec.yaml')
+        
+        # Skip if no pubspec.yaml
+        if not os.path.exists(pubspec_path):
+            continue
+
+        # Read pubspec.yaml
+        with open(pubspec_path, 'r') as f:
+            pubspec_data = yaml.safe_load(f)
+
+        # Prepare project info
+        project_info = {
+            "name": pubspec_data.get('name', ''),
+            "label": pubspec_data.get('label', ''),
+            "description": pubspec_data.get('description', ''),
+            "usage": "USAGE",  # Placeholder, you might want to customize this
+            "files": [],
+            "dependencies": [dep for dep in pubspec_data.get('dependencies', {}).keys() if dep != "flutter"],
+            "type": "ui",  # Placeholder, you might want to detect this dynamically
+            "author": "Ronak99",
+            "github": "https://github.com/Ronak99"
+        }
+
+        # Scan lib folder for Dart files
+        lib_path = os.path.join(project_path, 'lib')
+        if os.path.exists(lib_path):
+            for root, _, files in os.walk(lib_path):
+                for file in files:
+                    if file.endswith('.dart'):
+                        file_path = os.path.join(root, file)
+                        
+                        # Read file content
+                        with open(file_path, 'r') as f:
+                            content = f.read()
+                        
+                        # Calculate relative directory
+                        rel_dir = os.path.relpath(root, lib_path).replace('\\', '/')
+                        
+                        project_info['files'].append({
+                            "name": file,
+                            "dir": "majestic/ui",
+                            "content": content
+                        })
+
+        projects.append(project_info)
+
+    return projects
 
 def update_all_widgets():
     """Generates all_widgets.json by aggregating main.dart content."""
-    all_widgets = []
 
-    # Load existing JSON if available
-    if os.path.exists(OUTPUT_FILE):
-        with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-            all_widgets = json.load(f)
-
-    # Process each widget
-    for widget in WIDGETS:
-        content = read_main_dart(widget)
-        if content:
-            widget_entry = {
-                "name": widget.replace("majestic_", ""),  # Remove "majestic_" prefix
-                "files": [
-                    {
-                        "name": f"{widget}.dart",
-                        "dir": "majestic/ui",
-                        "content": json.dumps(content)  # Stringify the content
-                    }
-                ],
-                "type": "ui"
-            }
-            # Add or update widget in all_widgets
-            all_widgets = [w for w in all_widgets if w["name"] != widget_entry["name"]]
-            all_widgets.append(widget_entry)
-
-    # Write back to JSON
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(all_widgets, f, indent=2)
+    # Adjust this path to your src folder
+    src_path = './src'
+    
+    # Scan projects and generate JSON
+    projects_data = scan_dart_projects(src_path)
+    
+    # Write to output file
+    with open('all_widgets.json', 'w') as f:
+        json.dump(projects_data, f, indent=2)
+    
+    print(f"Scanned {len(projects_data)} projects. Results saved to project_scan_results.json")
 
 if __name__ == "__main__":
     update_all_widgets()
