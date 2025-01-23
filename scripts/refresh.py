@@ -3,8 +3,8 @@ import json
 import yaml
 import re
 
-# REPO_PATH = "./"
-REPO_PATH = "/home/runner/work/majestic-ui-flutter/majestic-ui-flutter/"
+REPO_PATH = "./"
+# REPO_PATH = "/home/runner/work/majestic-ui-flutter/majestic-ui-flutter/"
 SRC_PATH = os.path.join(REPO_PATH, 'src')
 
 
