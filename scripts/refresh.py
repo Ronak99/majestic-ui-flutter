@@ -1,4 +1,4 @@
-# python scripts/refresh.py && git add . && git commit -m "" && cd app && flutter build web && firebase deploy --only hosting
+# python scripts/refresh.py && cd app && flutter build web && firebase deploy --only hosting && git add . && git commit -m "" && git push origin master
 
 import os
 import json
