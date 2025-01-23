@@ -1,5 +1,6 @@
-name: majestic_avatar
-description: "A new Flutter package project."
+name: avatar
+label: Majestic Avatar
+description: "Beautiful avatar."
 version: 0.0.1
 homepage:
 

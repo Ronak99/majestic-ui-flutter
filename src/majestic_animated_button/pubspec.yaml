@@ -1,5 +1,6 @@
-name: majestic_animated_button
-description: "A new Flutter package project."
+name: animated_button
+label: Majestic Animated Button
+description: "Beautiful animated button."
 version: 0.0.1
 homepage:
 

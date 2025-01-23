@@ -1,5 +1,6 @@
-name: majestic_card
-description: "A new Flutter plugin project."
+name: card
+label: Majestic Card
+description: "Beautiful card."
 version: 0.0.1
 homepage:
 
