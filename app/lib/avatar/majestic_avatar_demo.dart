@@ -1,5 +1,5 @@
+import 'package:avatar/majestic_avatar.dart';
 import 'package:flutter/material.dart';
-import 'package:majestic_avatar/majestic_avatar.dart';
 
 class MajesticAvatarDemo extends StatelessWidget {
   const MajesticAvatarDemo({super.key});
@@ -12,7 +12,7 @@ class MajesticAvatarDemo extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             MajesticAvatar(
-              "https://www.picsum.photos/50",
+              "https://picsum.photos/50",
               isRound: true,
               height: 50,
               width: 50,

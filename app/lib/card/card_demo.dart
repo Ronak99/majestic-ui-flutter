@@ -1,5 +1,5 @@
+import 'package:card/majestic_card.dart';
 import 'package:flutter/material.dart';
-import 'package:majestic_card/majestic_card.dart';
 
 class CardDemo extends StatelessWidget {
   const CardDemo({super.key});
