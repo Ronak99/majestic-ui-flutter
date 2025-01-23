@@ -4,7 +4,7 @@ import yaml
 import re
 
 # REPO_PATH = "./"
-REPO_PATH = "/home/runner/work/majesticui-flutter/majesticui-flutter/"
+REPO_PATH = "/home/runner/work/majestic-ui-flutter/majestic-ui-flutter/"
 SRC_PATH = os.path.join(REPO_PATH, 'src')
 
 
