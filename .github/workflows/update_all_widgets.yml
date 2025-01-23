@@ -3,7 +3,7 @@ name: Update All Widgets
 on:
   push:
     branches:
-      - update_all_widgets
+      - refresh_widget_list
 
 jobs:
   update-all-widgets:
