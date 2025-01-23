@@ -13,10 +13,10 @@ final router = GoRouter(
       path: '/',
       builder: (context, state) => const HomePage(),
     ),
-    GoRoute(
-      path: '/card_demo',
-      builder: (context, state) => const CardDemo(),
-    ),
+    // GoRoute(
+    //   path: '/card_demo',
+    //   builder: (context, state) => const CardDemo(),
+    // ),
     GoRoute(
       path: '/avatar',
       builder: (context, state) => const MajesticAvatarDemo(),
