@@ -3,11 +3,11 @@ import 'dart:math' as math;
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:user_feed/models/user_feed_post.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 // local imports
+import 'models/user_feed_post.dart';
 import 'provider/user_feed_provider.dart';
 
 class UserFeed extends StatefulWidget {

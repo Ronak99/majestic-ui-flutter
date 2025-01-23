@@ -2,6 +2,7 @@ import 'package:app/ui/animated_button/majestic_animated_button_demo.dart';
 import 'package:app/ui/avatar/majestic_avatar_demo.dart';
 import 'package:app/ui/card/card_demo.dart';
 import 'package:app/ui/home/home.dart';
+import 'package:app/ui/star_rush_background/star_rush_background_demo.dart';
 import 'package:app/ui/user_feed/user_feed_demo.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,6 +28,10 @@ final router = GoRouter(
     GoRoute(
       path: '/user_feed',
       builder: (context, state) => const UserFeedDemo(),
+    ),
+    GoRoute(
+      path: '/star_rush_background',
+      builder: (context, state) => const StarRushBackgroundDemo(),
     ),
   ],
 );

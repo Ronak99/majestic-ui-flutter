@@ -34,6 +34,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  go_router: ^14.6.3
+  provider: ^6.1.2
+
   card:
     path: "../src/majestic_card"
   avatar:
@@ -42,8 +45,8 @@ dependencies:
     path: "../src/animated_button"
   user_feed:
     path: "../src/user_feed"
-  go_router: ^14.6.3
-  provider: ^6.1.2
+  star_rush_background:
+    path: "../src/star_rush_background"
 
 dev_dependencies:
   flutter_test:

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:user_feed/services/video_control_service.dart';
 import 'package:video_player/video_player.dart';
 import 'dart:collection';
 
 import '../models/user_feed_post.dart';
 import '../services/ad_service.dart';
+import '../services/video_control_service.dart';
 import '../services/video_service.dart';
 
 class UserFeedProvider extends ChangeNotifier {
