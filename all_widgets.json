@@ -58,8 +58,8 @@
   },
   {
     "name": "user_feed",
-    "label": "",
-    "description": "A new Flutter package project.",
+    "label": "User Feed",
+    "description": "Fully functional tiktok/instagram like user feed, with inbuilt advertisement support and pagination.",
     "usage": "USAGE",
     "files": [
       {

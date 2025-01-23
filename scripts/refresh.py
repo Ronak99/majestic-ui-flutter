@@ -1,3 +1,5 @@
+# python scripts/refresh.py && git add . && git commit -m "" && flutter build web && firebase deploy --only hosting
+
 import os
 import json
 import yaml
