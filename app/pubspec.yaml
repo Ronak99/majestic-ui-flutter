@@ -39,8 +39,11 @@ dependencies:
   avatar:
     path: "../src/majestic_avatar"
   animated_button:
-    path: "../src/majestic_animated_button"
+    path: "../src/animated_button"
+  user_feed:
+    path: "../src/user_feed"
   go_router: ^14.6.3
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

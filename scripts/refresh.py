@@ -14,6 +14,8 @@ def scan_dart_projects(src_path):
     # Iterate through directories in src folder
     for project_dir in os.listdir(src_path):
         project_path = os.path.join(src_path, project_dir)
+
+        # if project_path.split("/")[-1] != "user_feed": continue
         
         # Skip if not a directory
         if not os.path.isdir(project_path):
@@ -30,9 +32,11 @@ def scan_dart_projects(src_path):
         with open(pubspec_path, 'r') as f:
             pubspec_data = yaml.safe_load(f)
 
+        widget_name = pubspec_data.get('name', '')
+
         # Prepare project info
         project_info = {
-            "name": pubspec_data.get('name', ''),
+            "name": widget_name,
             "label": pubspec_data.get('label', ''),
             "description": pubspec_data.get('description', ''),
             "usage": "USAGE",  # Placeholder, you might want to customize this
@@ -45,26 +49,40 @@ def scan_dart_projects(src_path):
 
         # Scan lib folder for Dart files
         lib_path = os.path.join(project_path, 'lib')
-        if os.path.exists(lib_path):
-            for root, _, files in os.walk(lib_path):
-                for file in files:
-                    if file.endswith('.dart'):
-                        file_path = os.path.join(root, file)
-                        
-                        # Read file content
-                        with open(file_path, 'r') as f:
-                            content = f.read()
-                        
-                        # Calculate relative directory
-                        rel_dir = os.path.relpath(root, lib_path).replace('\\', '/')
-                        
-                        project_info['files'].append({
-                            "name": file,
-                            "dir": "majestic/ui",
-                            "content": content
-                        })
 
-        projects.append(project_info)
+        if os.path.exists(lib_path):
+            # Recursively find all Dart files
+            dart_files = []
+            for root, _, files in os.walk(lib_path):
+                dart_files.extend([os.path.join(root, f) for f in files if f.endswith('.dart')])
+
+            print(dart_files)
+
+            for file_path in dart_files:
+                # Read file content
+                with open(file_path, 'r') as f:
+                    content = f.read()
+
+                # Calculate relative directory
+                rel_dir = os.path.relpath(os.path.dirname(file_path), lib_path).replace('\\', '/')
+
+                # If only one Dart file exists in the entire project, directory is majestic/ui
+                if len(dart_files) == 1:
+                    directory = "majestic/ui"
+                else:
+                    # If more than one file, handle nested directories
+                    if rel_dir == '.':
+                        directory = f"majestic/ui/{widget_name}"
+                    else:
+                        directory = f"majestic/ui/{widget_name}/{rel_dir}"
+
+                project_info['files'].append({
+                    "name": os.path.basename(file_path),
+                    "dir": directory,
+                    "content": content
+                })
+
+            projects.append(project_info)
 
     return projects
 

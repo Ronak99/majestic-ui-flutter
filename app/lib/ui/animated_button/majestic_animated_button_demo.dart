@@ -1,4 +1,4 @@
-import 'package:animated_button/majestic_animated_button.dart';
+import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 
 class MajesticAnimatedButtonDemo extends StatelessWidget {

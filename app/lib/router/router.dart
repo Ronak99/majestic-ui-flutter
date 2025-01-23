@@ -1,11 +1,12 @@
-import 'package:app/animated_button/majestic_animated_button_demo.dart';
-import 'package:app/avatar/majestic_avatar_demo.dart';
-import 'package:app/card/card_demo.dart';
-import 'package:app/home/home.dart';
+import 'package:app/ui/animated_button/majestic_animated_button_demo.dart';
+import 'package:app/ui/avatar/majestic_avatar_demo.dart';
+import 'package:app/ui/card/card_demo.dart';
+import 'package:app/ui/home/home.dart';
+import 'package:app/ui/user_feed/user_feed_demo.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  initialLocation: "/animated_button",
+  initialLocation: "/user_feed",
   routes: [
     GoRoute(
       path: '/',
@@ -22,6 +23,10 @@ final router = GoRouter(
     GoRoute(
       path: '/animated_button',
       builder: (context, state) => const MajesticAnimatedButtonDemo(),
+    ),
+    GoRoute(
+      path: '/user_feed',
+      builder: (context, state) => const UserFeedDemo(),
     ),
   ],
 );
