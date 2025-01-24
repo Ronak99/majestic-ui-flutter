@@ -3,7 +3,6 @@
     "name": "star_rush_background",
     "label": "Star Rush Background",
     "description": "Beautiful package to elevate your app.",
-    "usage": "USAGE",
     "files": [
       {
         "name": "star_rush_background.dart",
@@ -14,13 +13,13 @@
     "dependencies": [],
     "type": "ui",
     "author": "Ronak99",
-    "github": "https://github.com/Ronak99"
+    "github": "https://github.com/Ronak99",
+    "demo": "import 'package:flutter/material.dart';\nimport 'package:star_rush_background/star_rush_background.dart';\n\nclass StarRushBackgroundDemo extends StatelessWidget {\n  const StarRushBackgroundDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      body: StarRushBackground(\n        speed: 35,\n      ),\n    );\n  }\n}\n"
   },
   {
     "name": "avatar",
     "label": "Avatar",
     "description": "Beautiful avatar.",
-    "usage": "USAGE",
     "files": [
       {
         "name": "majestic_avatar.dart",
@@ -33,13 +32,13 @@
     ],
     "type": "ui",
     "author": "Ronak99",
-    "github": "https://github.com/Ronak99"
+    "github": "https://github.com/Ronak99",
+    "demo": "import 'package:avatar/majestic_avatar.dart';\nimport 'package:flutter/material.dart';\n\nclass MajesticAvatarDemo extends StatelessWidget {\n  const MajesticAvatarDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      body: Center(\n        child: Column(\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            MajesticAvatar(\n              \"https://picsum.photos/50\",\n              isRound: true,\n              height: 50,\n              width: 50,\n              radius: 2,\n              text: \"Ronak\",\n            ),\n            Text(\"ronak\"),\n          ],\n        ),\n      ),\n    );\n  }\n}\n"
   },
   {
     "name": "animated_button",
     "label": "Animated Button",
     "description": "Beautiful animated button.",
-    "usage": "USAGE",
     "files": [
       {
         "name": "animated_button.dart",
@@ -52,13 +51,13 @@
     ],
     "type": "ui",
     "author": "Ronak99",
-    "github": "https://github.com/Ronak99"
+    "github": "https://github.com/Ronak99",
+    "demo": "import 'package:animated_button/animated_button.dart';\nimport 'package:flutter/material.dart';\n\nclass MajesticAnimatedButtonDemo extends StatelessWidget {\n  const MajesticAnimatedButtonDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Center(\n        child: MajesticAnimatedButton(\n          child: const Icon(\n            Icons.person,\n            color: Colors.white,\n          ),\n          onPressed: () {},\n        ),\n      ),\n    );\n  }\n}\n"
   },
   {
     "name": "user_feed",
     "label": "User Feed",
     "description": "Fully functional tiktok/instagram like user feed, with inbuilt advertisement support and pagination.",
-    "usage": "USAGE",
     "files": [
       {
         "name": "user_feed.dart",
@@ -106,6 +105,7 @@
     ],
     "type": "ui",
     "author": "Ronak99",
-    "github": "https://github.com/Ronak99"
+    "github": "https://github.com/Ronak99",
+    "demo": "import 'package:flutter/material.dart';\nimport 'package:user_feed/user_feed.dart';\n\nclass UserFeedDemo extends StatelessWidget {\n  const UserFeedDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      body: UserFeed(),\n    );\n  }\n}\n"
   }
 ]

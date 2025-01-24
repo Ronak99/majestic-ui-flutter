@@ -8,6 +8,7 @@ import re
 REPO_PATH = "./"
 # REPO_PATH = "/home/runner/work/majestic-ui-flutter/majestic-ui-flutter/"
 SRC_PATH = os.path.join(REPO_PATH, 'src')
+APP_LIB_PATH = os.path.join(REPO_PATH, 'app/lib/ui')
 
 
 def scan_dart_projects(src_path):
@@ -41,7 +42,6 @@ def scan_dart_projects(src_path):
             "name": widget_name,
             "label": pubspec_data.get('label', ''),
             "description": pubspec_data.get('description', ''),
-            "usage": "USAGE",  # Placeholder, you might want to customize this
             "files": [],
             "dependencies": [dep for dep in pubspec_data.get('dependencies', {}).keys() if dep != "flutter"],
             "type": "ui",  # Placeholder, you might want to detect this dynamically
@@ -58,7 +58,12 @@ def scan_dart_projects(src_path):
             for root, _, files in os.walk(lib_path):
                 dart_files.extend([os.path.join(root, f) for f in files if f.endswith('.dart')])
 
-            print(dart_files)
+            # Extract demo code from app/lib
+            demo_file_path = os.path.join(APP_LIB_PATH, widget_name, 'demo.dart')
+            if os.path.exists(demo_file_path):
+                with open(demo_file_path, 'r') as f:
+                    demo_code = f.read()
+                    project_info['demo'] = demo_code
 
             for file_path in dart_files:
                 # Read file content
