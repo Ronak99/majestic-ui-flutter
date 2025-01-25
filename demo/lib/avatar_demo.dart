@@ -1,8 +1,7 @@
-import 'package:avatar/avatar.dart';
 import 'package:flutter/material.dart';
 
-class AvatarDemo extends StatelessWidget {
-  const AvatarDemo({super.key});
+class MajesticAvatarDemo extends StatelessWidget {
+  const MajesticAvatarDemo({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -19,7 +19,7 @@ final router = GoRouter(
     // ),
     GoRoute(
       path: '/avatar',
-      builder: (context, state) => const MajesticAvatarDemo(),
+      builder: (context, state) => const AvatarDemo(),
     ),
     GoRoute(
       path: '/animated_button',

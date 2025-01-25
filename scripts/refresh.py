@@ -8,7 +8,7 @@ import re
 REPO_PATH = "./"
 # REPO_PATH = "/home/runner/work/majestic-ui-flutter/majestic-ui-flutter/"
 SRC_PATH = os.path.join(REPO_PATH, 'src')
-APP_LIB_PATH = os.path.join(REPO_PATH, 'app/lib/ui')
+DEMO_APP_LIB_PATH = os.path.join(REPO_PATH, 'demo/lib/')
 
 
 def scan_dart_projects(src_path):
@@ -59,7 +59,7 @@ def scan_dart_projects(src_path):
                 dart_files.extend([os.path.join(root, f) for f in files if f.endswith('.dart')])
 
             # Extract demo code from app/lib
-            demo_file_path = os.path.join(APP_LIB_PATH, widget_name, 'demo.dart')
+            demo_file_path = os.path.join(DEMO_APP_LIB_PATH, f"{widget_name}_demo.dart")
             if os.path.exists(demo_file_path):
                 with open(demo_file_path, 'r') as f:
                     demo_code = f.read()
@@ -75,13 +75,13 @@ def scan_dart_projects(src_path):
 
                 # If only one Dart file exists in the entire project, directory is majestic/ui
                 if len(dart_files) == 1:
-                    directory = "majestic/ui"
+                    directory = "lib/majestic/ui"
                 else:
                     # If more than one file, handle nested directories
                     if rel_dir == '.':
-                        directory = f"majestic/ui/{widget_name}"
+                        directory = f"lib/majestic/ui/{widget_name}"
                     else:
-                        directory = f"majestic/ui/{widget_name}/{rel_dir}"
+                        directory = f"lib/majestic/ui/{widget_name}/{rel_dir}"
 
                 project_info['files'].append({
                     "name": os.path.basename(file_path),

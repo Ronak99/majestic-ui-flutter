@@ -29,7 +29,7 @@ RULES:
 [placeholder]
 
 */
-class MajesticAvatar extends StatefulWidget {
+class Avatar extends StatefulWidget {
   final String? src;
   final double radius;
   final String? text;
@@ -41,7 +41,7 @@ class MajesticAvatar extends StatefulWidget {
   final bool isRound;
   final bool useOldImageOnUrlChange;
 
-  const MajesticAvatar(
+  const Avatar(
     this.src, {
     super.key,
     this.isRound = false,
@@ -56,10 +56,10 @@ class MajesticAvatar extends StatefulWidget {
   });
 
   @override
-  State<MajesticAvatar> createState() => _CachedImageState();
+  State<Avatar> createState() => _CachedImageState();
 }
 
-class _CachedImageState extends State<MajesticAvatar> {
+class _CachedImageState extends State<Avatar> {
   Color? _color;
 
   @override

@@ -37,10 +37,8 @@ dependencies:
   go_router: ^14.6.3
   provider: ^6.1.2
 
-  card:
-    path: "../src/majestic_card"
   avatar:
-    path: "../src/majestic_avatar"
+    path: "../src/avatar"
   animated_button:
     path: "../src/animated_button"
   user_feed:
