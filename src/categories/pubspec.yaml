@@ -1,5 +1,6 @@
 name: categories
-description: "A new Flutter package project."
+description: "Categories screen iwth state management"
+label: "Categories"
 version: 0.0.1
 homepage:
 
