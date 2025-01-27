@@ -1,0 +1,188 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "app",
+            "cwd": "app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "app (profile mode)",
+            "cwd": "app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "app (release mode)",
+            "cwd": "app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "demo",
+            "cwd": "demo",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "demo (profile mode)",
+            "cwd": "demo",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "demo (release mode)",
+            "cwd": "demo",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "animated_button",
+            "cwd": "src/animated_button",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "animated_button (profile mode)",
+            "cwd": "src/animated_button",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "animated_button (release mode)",
+            "cwd": "src/animated_button",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "avatar",
+            "cwd": "src/avatar",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "avatar (profile mode)",
+            "cwd": "src/avatar",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "avatar (release mode)",
+            "cwd": "src/avatar",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "categories",
+            "cwd": "src/categories",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "categories (profile mode)",
+            "cwd": "src/categories",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "categories (release mode)",
+            "cwd": "src/categories",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "empty_state",
+            "cwd": "src/empty_state",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "empty_state (profile mode)",
+            "cwd": "src/empty_state",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "empty_state (release mode)",
+            "cwd": "src/empty_state",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "en_passant",
+            "cwd": "src/en_passant",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "en_passant (profile mode)",
+            "cwd": "src/en_passant",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "en_passant (release mode)",
+            "cwd": "src/en_passant",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "star_rush_background",
+            "cwd": "src/star_rush_background",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "star_rush_background (profile mode)",
+            "cwd": "src/star_rush_background",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "star_rush_background (release mode)",
+            "cwd": "src/star_rush_background",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "user_feed",
+            "cwd": "src/user_feed",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "user_feed (profile mode)",
+            "cwd": "src/user_feed",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "user_feed (release mode)",
+            "cwd": "src/user_feed",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

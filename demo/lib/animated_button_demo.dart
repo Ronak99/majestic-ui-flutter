@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'majestic/ui/animated_button.dart';
+
 class AnimatedButtonDemo extends StatelessWidget {
   const AnimatedButtonDemo({super.key});
 

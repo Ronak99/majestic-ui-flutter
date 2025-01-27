@@ -35,6 +35,10 @@ def scan_dart_projects(src_path):
         with open(pubspec_path, 'r') as f:
             pubspec_data = yaml.safe_load(f)
 
+        should_ignore = pubspec_data.get('ignore', False)
+
+        if should_ignore: continue
+
         widget_name = pubspec_data.get('name', '')
 
         # Prepare project info

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'majestic/ui/avatar.dart';
+
 class MajesticAvatarDemo extends StatelessWidget {
   const MajesticAvatarDemo({super.key});
 
@@ -18,7 +20,6 @@ class MajesticAvatarDemo extends StatelessWidget {
               radius: 2,
               text: "Ronak",
             ),
-            Text("ronak"),
           ],
         ),
       ),
