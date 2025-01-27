@@ -37,8 +37,8 @@
   },
   {
     "name": "empty_state",
-    "label": "",
-    "description": "A new Flutter package project.",
+    "label": "Empty State",
+    "description": "Empty states when the data is not available.",
     "files": [
       {
         "name": "empty_state.dart",
