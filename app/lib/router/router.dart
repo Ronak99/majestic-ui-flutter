@@ -1,13 +1,14 @@
 import 'package:app/ui/animated_button/demo.dart';
 import 'package:app/ui/avatar/demo.dart';
-import 'package:app/ui/card/demo.dart';
+import 'package:app/ui/categories/categories_demo.dart';
+import 'package:app/ui/empty_state/demo.dart';
 import 'package:app/ui/home/demo.dart';
 import 'package:app/ui/star_rush_background/demo.dart';
 import 'package:app/ui/user_feed/demo.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  initialLocation: "/user_feed",
+  initialLocation: "/categories",
   routes: [
     GoRoute(
       path: '/',
@@ -32,6 +33,14 @@ final router = GoRouter(
     GoRoute(
       path: '/star_rush_background',
       builder: (context, state) => const StarRushBackgroundDemo(),
+    ),
+    GoRoute(
+      path: '/empty_state',
+      builder: (context, state) => const EmptyStateDemo(),
+    ),
+    GoRoute(
+      path: '/categories',
+      builder: (context, state) => const CategoriesDemo(),
     ),
   ],
 );

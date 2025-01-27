@@ -17,8 +17,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Flutter Demo',
         theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0xff0a0a0a),
-          brightness: Brightness.dark,
+          scaffoldBackgroundColor: const Color(0xffffffff),
+          brightness: Brightness.light,
+          // scaffoldBackgroundColor: const Color(0xff0a0a0a),
+          // brightness: Brightness.dark,
         ),
         routerConfig: router,
         debugShowCheckedModeBanner: false,

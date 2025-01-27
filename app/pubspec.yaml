@@ -45,6 +45,10 @@ dependencies:
     path: "../src/user_feed"
   star_rush_background:
     path: "../src/star_rush_background"
+  empty_state:
+    path: "../src/empty_state"
+  categories:
+    path: "../src/categories"
 
 dev_dependencies:
   flutter_test:
