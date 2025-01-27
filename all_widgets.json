@@ -126,8 +126,8 @@
   },
   {
     "name": "categories",
-    "label": "",
-    "description": "A new Flutter package project.",
+    "label": "Categories",
+    "description": "Categories screen iwth state management",
     "files": [
       {
         "name": "categories_view.dart",
