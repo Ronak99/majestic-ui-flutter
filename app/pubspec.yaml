@@ -49,6 +49,8 @@ dependencies:
     path: "../src/empty_state"
   categories:
     path: "../src/categories"
+  animated_grid_background:
+    path: "../src/animated_grid_background"
 
 dev_dependencies:
   flutter_test:

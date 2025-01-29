@@ -8,6 +8,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  animated_grid_background:
+    dependency: "direct main"
+    description:
+      path: "../src/animated_grid_background"
+      relative: true
+    source: path
+    version: "0.0.1"
   async:
     dependency: transitive
     description:
