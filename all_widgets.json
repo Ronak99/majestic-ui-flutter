@@ -54,7 +54,8 @@
     "dependencies": [],
     "type": "ui",
     "author": "Ronak99",
-    "github": "https://github.com/Ronak99"
+    "github": "https://github.com/Ronak99",
+    "demo": "import 'package:flutter/material.dart';\n\nimport 'majestic/ui/animated_grid_background/animated_grid_background.dart';\n\nclass AnimatedGridBackgroundDemo extends StatelessWidget {\n  const AnimatedGridBackgroundDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      backgroundColor: Colors.black,\n      body: AnimatedGridBackground(),\n    );\n  }\n}\n"
   },
   {
     "name": "avatar",
