@@ -1,6 +1,7 @@
 name: empty_state
 description: "Empty states when the data is not available."
 label: Empty State
+ignore: true
 version: 0.0.1
 homepage:
 
