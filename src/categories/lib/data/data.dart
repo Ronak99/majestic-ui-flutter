@@ -1,4 +1,5 @@
 import 'package:categories/models/category_item.dart';
+import 'package:categories/models/filter.dart';
 import 'package:categories/models/product.dart';
 
 final categoryItems = <CategoryItem>[
@@ -54,7 +55,7 @@ final dummyProducts = [
   Product(
     name:
         'Cadbury Studio Assorted Flavours Signature Pralines Chocolate Gift Pack',
-    imageUrl: 'https://example.com/chocolate1.jpg',
+    imageUrl: 'https://picsum.photos/180',
     price: 716,
     mrp: 1000,
     weight: 234,
@@ -126,4 +127,12 @@ final dummyProducts = [
     deliveryTime: 10,
     discount: 7,
   ),
+];
+
+// Filter
+final filters = [
+  Filter(label: 'Filter', value: 'filter', filterType: FilterType.dropdown),
+  Filter(label: 'Sort', value: 'sort', filterType: FilterType.dropdown),
+  Filter(label: 'Brand', value: 'brand', filterType: FilterType.normal),
+  Filter(label: 'More', value: 'more', filterType: FilterType.dropdown),
 ];

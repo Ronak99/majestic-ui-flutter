@@ -1,7 +1,9 @@
-import 'package:categories/data/data.dart';
 import 'package:categories/state/categories_state_provider.dart';
+import 'package:categories/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../utils/colors.dart';
 
 class CategoriesLeftPanel extends StatelessWidget {
   const CategoriesLeftPanel({super.key});
@@ -11,10 +13,14 @@ class CategoriesLeftPanel extends StatelessWidget {
     final categoriesStateProvider =
         Provider.of<CategoriesStateProvider>(context);
 
-    const double itemSize = 36 * 2;
+    final safeArePaddingTop = MediaQuery.of(context).padding.top;
+
+    const double imageSize = 50;
+    const double itemHeight = 104;
+    const double handleWidth = 5;
 
     return Container(
-      width: 78,
+      width: leftPanelWidth,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -25,54 +31,80 @@ class CategoriesLeftPanel extends StatelessWidget {
           )
         ],
       ),
-      child: Row(
+      child: Stack(
         children: [
-          Expanded(
-            child: ListView(
-              children: categoriesStateProvider.allCategories
-                  .map(
-                    (categoryItem) => GestureDetector(
-                      onTap: () =>
-                          categoriesStateProvider.updateCategory(categoryItem),
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color:
-                                    categoriesStateProvider.selectedCategory ==
+          ListView(
+            children: categoriesStateProvider.allCategories
+                .map(
+                  (categoryItem) => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          onTap: () => categoriesStateProvider
+                              .updateCategory(categoryItem),
+                          child: Container(
+                            height: itemHeight,
+                            color: Colors.transparent,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: categoriesStateProvider
+                                                .selectedCategory ==
                                             categoryItem
                                         ? const Color(0xffceffda)
-                                        : const Color(0xfff3f5f7),
-                                shape: BoxShape.circle,
-                              ),
-                              height: itemSize,
-                              width: itemSize,
-                              margin: const EdgeInsets.only(bottom: 4),
-                            ),
-                            Text(
-                              categoryItem.name,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontWeight:
-                                    categoriesStateProvider.selectedCategory ==
+                                        : lightBackgroundColor,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  height: imageSize,
+                                  width: imageSize,
+                                  margin: const EdgeInsets.only(bottom: 4),
+                                ),
+                                Text(
+                                  categoryItem.name,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    height: 1.1,
+                                    fontWeight: categoriesStateProvider
+                                                .selectedCategory ==
                                             categoryItem
-                                        ? FontWeight.w700
+                                        ? FontWeight.w600
                                         : FontWeight.normal,
-                                fontSize: 12,
-                              ),
+                                    fontSize: 11,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
-                    ),
-                  )
-                  .toList(),
-            ),
+                    ],
+                  ),
+                )
+                .toList(),
           ),
+          // if (categoriesStateProvider.isAnimating)
+          //   AnimatedPositioned(
+          //     right: 0,
+          //     top: (itemHeight *
+          //             categoriesStateProvider.getSelectedCategoryIndex) +
+          //         safeArePaddingTop,
+          //     duration: const Duration(milliseconds: 300),
+          //     curve: Curves.easeInOut,
+          //     child: Container(
+          //       height: itemHeight,
+          //       width: handleWidth,
+          //       decoration: BoxDecoration(
+          //         color: Colors.green[800],
+          //         borderRadius: const BorderRadius.horizontal(
+          //           left: Radius.circular(12),
+          //         ),
+          //       ),
+          //     ),
+          //   ),
         ],
       ),
     );

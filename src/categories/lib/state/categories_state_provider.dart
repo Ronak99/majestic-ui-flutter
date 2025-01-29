@@ -9,6 +9,8 @@ class CategoriesStateProvider extends ChangeNotifier {
   late CategoryItem _selectedCategory;
   CategoryItem get selectedCategory => _selectedCategory;
 
+  bool isAnimating = false;
+
   CategoriesStateProvider() {
     _initialize();
   }
@@ -23,4 +25,6 @@ class CategoriesStateProvider extends ChangeNotifier {
     _selectedCategory = categoryItem;
     notifyListeners();
   }
+
+  int get getSelectedCategoryIndex => allCategories.indexOf(selectedCategory);
 }

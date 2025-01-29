@@ -1,5 +1,8 @@
 import 'package:categories/data/data.dart';
+import 'package:categories/models/filter.dart';
 import 'package:categories/models/product.dart';
+import 'package:categories/utils/colors.dart';
+import 'package:categories/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesMainPanel extends StatelessWidget {
@@ -7,85 +10,67 @@ class CategoriesMainPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      color: const Color(0xfffffefe),
-      child: Column(
-        children: [
-          _buildFilters(),
-          const Expanded(
-            child: ProductGrid(),
-          ),
-        ],
+    return SafeArea(
+      child: Container(
+        width: double.infinity,
+        color: const Color(0xfffffefe),
+        child: Column(
+          children: [
+            _buildFilters(),
+            const Expanded(
+              child: ProductGrid(),
+            ),
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildFilters() {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      decoration: BoxDecoration(
-        border: const Border(
-          bottom: BorderSide(
-            color: Colors.black26,
-            width: 1,
-          ),
-        ),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey[300]!,
-            offset: const Offset(0, 1),
-            blurRadius: 2,
-          )
-        ],
-      ),
-      width: double.infinity,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.all(8),
-        child: Row(
-          children: [
-            FilterChip(
-              label: const Row(
-                children: [
-                  Text('Filters'),
-                  SizedBox(width: 4),
-                  Icon(Icons.arrow_drop_down, size: 18),
-                ],
-              ),
-              onSelected: (_) {},
-            ),
-            const SizedBox(width: 8),
-            FilterChip(
-              label: const Row(
-                children: [
-                  Text('Sort'),
-                  SizedBox(width: 4),
-                  Icon(Icons.arrow_drop_down, size: 18),
-                ],
-              ),
-              onSelected: (_) {},
-            ),
-            const SizedBox(width: 8),
-            FilterChip(
-              label: const Row(
-                children: [
-                  Text('Brand'),
-                  SizedBox(width: 4),
-                  Icon(Icons.arrow_drop_down, size: 18),
-                ],
-              ),
-              onSelected: (_) {},
-            ),
-            const SizedBox(width: 8),
-            FilterChip(
-              label: const Text('Imported'),
-              onSelected: (_) {},
-            ),
-          ],
-        ),
-      ),
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.symmetric(
+          vertical: 4, horizontal: defaultViewPadding),
+      child: Row(
+          children: filters
+              .map(
+                (item) => Container(
+                  margin: const EdgeInsets.only(right: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[400]!,
+                        offset: const Offset(0, 0),
+                        blurRadius: 2,
+                      )
+                    ],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  padding: EdgeInsets.only(
+                    left: 12,
+                    right: item.isDropdown ? 4 : 12,
+                    top: item.isDropdown ? 2 : 4,
+                    bottom: item.isDropdown ? 2 : 4,
+                  ),
+                  child: Row(
+                    children: [
+                      Text(
+                        item.label,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      if (item.isDropdown)
+                        const Icon(
+                          Icons.arrow_drop_down,
+                          size: 24,
+                        ),
+                    ],
+                  ),
+                ),
+              )
+              .toList()),
     );
   }
 }
@@ -95,13 +80,17 @@ class ProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewWidth = MediaQuery.of(context).size.width -
+        leftPanelWidth -
+        (defaultViewPadding * 2);
+
     return GridView.builder(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(defaultViewPadding),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.7,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
+        childAspectRatio: 0.6,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 6,
       ),
       itemBuilder: (context, index) =>
           ProductCard(product: dummyProducts[index]),
@@ -120,136 +109,163 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+      ),
+      child: LayoutBuilder(builder: (context, constraints) {
+        return SingleChildScrollView(
+          // Add scrolling if needed
+          child: Column(
+            mainAxisSize: MainAxisSize.min, // Use minimum space needed
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AspectRatio(
-                aspectRatio: 1,
-                child: Image.network(
-                  product.imageUrl,
-                  fit: BoxFit.cover,
+              // Image section with aspect ratio
+              ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
+                child: Container(
+                  width: double.infinity,
+                  height: 120,
+                  color: lightBackgroundColor,
+                  // child: Image.network(
+                  //   product.imageUrl,
+                  //   fit: BoxFit.cover,
+                  // ),
                 ),
               ),
-              if (product.isPremium)
-                Positioned(
-                  top: 8,
-                  left: 8,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: const Text(
-                      'Premium',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
+              const SizedBox(height: 8),
+              // Product details section
+              Column(
+                mainAxisSize: MainAxisSize.min, // Use minimum space needed
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      CustomChip(text: '${product.weight}g'),
+                      const SizedBox(width: 4),
+                      const CustomChip(text: 'Chocolate Chip'),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    product.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                ),
+                  const SizedBox(height: 2),
+                  // Rating row
+                  Row(
+                    children: [
+                      ...List.generate(
+                        5,
+                        (e) => const Icon(
+                          Icons.star,
+                          size: 14,
+                          color: Colors.amber,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      const Text(
+                        '(30,895)',
+                        style: TextStyle(fontSize: 10),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  // Delivery time row
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.access_time,
+                        size: 10,
+                        color: Colors.green[800]!,
+                      ),
+                      Text(
+                        ' ${product.deliveryTime} MINS',
+                        style: TextStyle(
+                          color: Colors.grey[800],
+                          fontSize: 8,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  // Price row
+                  Row(
+                    children: [
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            children: [
+                              Text(
+                                '₹${product.price}',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                              const SizedBox(width: 4),
+                              Text(
+                                'MRP ',
+                                style: TextStyle(
+                                  color: Colors.grey[700],
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                              Text(
+                                '₹${product.mrp}',
+                                style: TextStyle(
+                                  decoration: TextDecoration.lineThrough,
+                                  color: Colors.grey[700],
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${product.weight}g${product.pieceCount != null ? ' • ${product.pieceCount} pcs' : ''}',
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  product.name,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 4),
-                Row(
-                  children: [
-                    const Icon(Icons.star, size: 16, color: Colors.amber),
-                    Text(
-                      ' ${product.rating}',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      ' (${product.reviewCount})',
-                      style: const TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Row(
-                  children: [
-                    const Icon(Icons.access_time,
-                        size: 16, color: Colors.green),
-                    Text(
-                      ' ${product.deliveryTime} MINS',
-                      style: const TextStyle(
-                        color: Colors.green,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Row(
-                  children: [
-                    Text(
-                      '₹${product.price}',
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      'MRP ₹${product.mrp}',
-                      style: const TextStyle(
-                        decoration: TextDecoration.lineThrough,
-                        color: Colors.grey,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: SizedBox(
-              width: double.infinity,
-              child: OutlinedButton(
-                onPressed: () {},
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: Colors.green,
-                  side: const BorderSide(color: Colors.green),
-                ),
-                child: const Text('ADD'),
-              ),
-            ),
-          ),
-        ],
+        );
+      }),
+    );
+  }
+}
+
+class CustomChip extends StatelessWidget {
+  final String text;
+
+  const CustomChip({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        color: lightBackgroundColor,
+      ),
+      padding: const EdgeInsets.all(4),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.blue[900],
+          fontWeight: FontWeight.w700,
+          fontSize: 9,
+        ),
       ),
     );
   }
