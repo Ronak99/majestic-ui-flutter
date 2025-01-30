@@ -51,6 +51,7 @@ dependencies:
     path: "../src/categories"
   animated_grid_background:
     path: "../src/animated_grid_background"
+  device_preview_plus: ^2.1.4
 
 dev_dependencies:
   flutter_test:

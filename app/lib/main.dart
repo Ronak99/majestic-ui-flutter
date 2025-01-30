@@ -1,10 +1,27 @@
 import 'package:app/router/router.dart';
+import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:user_feed/provider/user_feed_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: true,
+      backgroundColor: Colors.black,
+      defaultDevice: DeviceInfo.genericPhone(
+        platform: TargetPlatform.iOS,
+        id: 'iphone12',
+        name: 'iPhone 12 Mini',
+        screenSize: const Size(375, 812),
+      ),
+      isToolbarVisible: false,
+      data: const DevicePreviewData(
+        orientation: Orientation.portrait,
+      ),
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,8 +36,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: const Color(0xffffffff),
           brightness: Brightness.light,
-          // scaffoldBackgroundColor: const Color(0xff0a0a0a),
-          // brightness: Brightness.dark,
         ),
         routerConfig: router,
         debugShowCheckedModeBanner: false,
