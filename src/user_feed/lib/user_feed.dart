@@ -1,5 +1,7 @@
 import 'dart:math' as math;
 
+import 'package:flutter/gestures.dart';
+
 import 'package:custom_refresh_indicator/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -54,28 +56,39 @@ class _UserFeedState extends State<UserFeed> {
         backgroundColor: Colors.black26,
         body: provider.feed.isEmpty
             ? const DescriptiveText("Your feed is empty.")
-            : PageView.builder(
-                controller: provider.feedController,
-                scrollDirection: Axis.vertical,
-                itemCount: provider.feed.length,
+            : CustomPageView(
                 onPageChanged: provider.onVideoChanged,
-                itemBuilder: (context, index) {
-                  final post = provider.feed[index];
-
-                  if (post is VideoFeedPost) {
-                    return VideoPlayerWidget(
-                      controller: provider.getController(index),
-                      index: index,
-                      videoPost: post,
-                    );
-                  }
-                  // else if (post is AdvertisementFeedPost) {
-                  //   return AdvertisementView(adPost: post);
-                  // }
-
-                  return const SizedBox.shrink(); // Fallback
-                },
+                pages: provider.feed
+                    .map((post) => VideoPlayerWidget(
+                          controller: provider
+                              .getController(provider.feed.indexOf(post)),
+                          index: provider.feed.indexOf(post),
+                          videoPost: post as VideoFeedPost,
+                        ))
+                    .toList(),
               ),
+        // : PageView.builder(
+        //     controller: provider.feedController,
+        //     scrollDirection: Axis.vertical,
+        //     itemCount: provider.feed.length,
+        //     onPageChanged: provider.onVideoChanged,
+        //     itemBuilder: (context, index) {
+        //       final post = provider.feed[index];
+
+        //       if (post is VideoFeedPost) {
+        //         return VideoPlayerWidget(
+        //           controller: provider.getController(index),
+        //           index: index,
+        //           videoPost: post,
+        //         );
+        //       }
+        //       // else if (post is AdvertisementFeedPost) {
+        //       //   return AdvertisementView(adPost: post);
+        //       // }
+
+        //       return const SizedBox.shrink(); // Fallback
+        //     },
+        //   ),
       ),
     );
   }
@@ -331,5 +344,124 @@ class DescriptiveText extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class ControlledScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
+
+  @override
+  ScrollPhysics getScrollPhysics(BuildContext context) {
+    return const PageScrollPhysics().applyTo(
+      const ClampingScrollPhysics(),
+    );
+  }
+}
+
+class CustomPageView extends StatefulWidget {
+  final List<Widget> pages;
+  final PageController? controller;
+  final ScrollPhysics? physics;
+  final Function(int)? onPageChanged;
+
+  const CustomPageView({
+    super.key,
+    required this.pages,
+    this.controller,
+    this.physics,
+    this.onPageChanged,
+  });
+
+  @override
+  State<CustomPageView> createState() => _CustomPageViewState();
+}
+
+class _CustomPageViewState extends State<CustomPageView> {
+  late PageController _pageController;
+  bool _isAnimating = false;
+  int _currentEventId = -1;
+  int _activeEventId = -1;
+  double _accumulatedDelta = 0;
+  static const double _deltaThreshold = 100; // Adjust this value as needed
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = widget.controller ?? PageController();
+  }
+
+  Future<void> _handlePageTransition(int direction, int eventId) async {
+    if (_isAnimating) return;
+    if (_activeEventId != -1 && eventId != _activeEventId) return;
+
+    _isAnimating = true;
+    _activeEventId = eventId;
+
+    final nextPage = (_pageController.page?.round() ?? 0) + direction;
+
+    if (nextPage >= 0 && nextPage < widget.pages.length) {
+      await _pageController.animateToPage(
+        nextPage,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+
+    _isAnimating = false;
+    _activeEventId = -1;
+    _accumulatedDelta = 0;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ScrollConfiguration(
+      behavior: ControlledScrollBehavior(),
+      child: Listener(
+        onPointerSignal: (pointerSignal) {
+          if (pointerSignal is PointerScrollEvent) {
+            // Accumulate scroll delta
+            _accumulatedDelta += pointerSignal.scrollDelta.dy;
+
+            // Only create new event ID if we're not currently processing one
+            if (_activeEventId == -1) {
+              _currentEventId++;
+            }
+
+            // Check if accumulated delta exceeds threshold
+            if (_accumulatedDelta.abs() >= _deltaThreshold) {
+              final direction = _accumulatedDelta > 0 ? 1 : -1;
+              _handlePageTransition(direction, _currentEventId);
+            }
+          }
+        },
+        // Reset accumulated delta when pointer is removed
+        onPointerUp: (event) {
+          _accumulatedDelta = 0;
+        },
+        onPointerCancel: (event) {
+          _accumulatedDelta = 0;
+        },
+        child: PageView(
+          onPageChanged: widget.onPageChanged,
+          controller: _pageController,
+          scrollDirection: Axis.vertical,
+          // Disable default scroll behavior
+          physics: widget.physics ?? const NeverScrollableScrollPhysics(),
+          children: widget.pages,
+        ),
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    if (widget.controller == null) {
+      _pageController.dispose();
+    }
+    super.dispose();
   }
 }

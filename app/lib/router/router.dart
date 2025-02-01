@@ -9,7 +9,7 @@ import 'package:app/ui/user_feed/demo.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  initialLocation: "/categories",
+  initialLocation: "/user_feed",
   routes: [
     GoRoute(
       path: '/',
