@@ -1,9 +1,9 @@
-import 'package:categories/data/data.dart';
-import 'package:categories/models/filter.dart';
-import 'package:categories/models/product.dart';
-import 'package:categories/utils/colors.dart';
-import 'package:categories/utils/dimensions.dart';
 import 'package:flutter/material.dart';
+
+import '../../../data/data.dart';
+import '../../../models/product.dart';
+import '../../../utils/colors.dart';
+import '../../../utils/dimensions.dart';
 
 class CategoriesMainPanel extends StatelessWidget {
   const CategoriesMainPanel({super.key});

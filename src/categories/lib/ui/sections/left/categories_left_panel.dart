@@ -1,8 +1,8 @@
-import 'package:categories/state/categories_state_provider.dart';
-import 'package:categories/utils/dimensions.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../state/categories_state_provider.dart';
+import '../../../utils/dimensions.dart';
 import '../../../utils/colors.dart';
 
 class CategoriesLeftPanel extends StatelessWidget {

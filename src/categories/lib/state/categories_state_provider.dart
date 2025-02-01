@@ -1,6 +1,7 @@
-import 'package:categories/data/data.dart';
-import 'package:categories/models/category_item.dart';
 import 'package:flutter/material.dart';
+
+import '../data/data.dart';
+import '../models/category_item.dart';
 
 class CategoriesStateProvider extends ChangeNotifier {
   List<CategoryItem> _allCategories = [];

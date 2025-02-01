@@ -1,6 +1,6 @@
-import 'package:categories/models/category_item.dart';
-import 'package:categories/models/filter.dart';
-import 'package:categories/models/product.dart';
+import '../models/category_item.dart';
+import '../models/filter.dart';
+import '../models/product.dart';
 
 final categoryItems = <CategoryItem>[
   CategoryItem(
