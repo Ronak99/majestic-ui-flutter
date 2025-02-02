@@ -50,7 +50,9 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/onboarding_page',
-      builder: (context, state) => const OnboardingPage(),
+      builder: (context, state) => OnboardingPage(
+        onActionButtonTap: () async {},
+      ),
     ),
   ],
 );

@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import './models/onboarding_item.dart';
+import 'widgets/action_button.dart';
+import 'widgets/mascot_and_detail_container.dart';
+import 'widgets/pageview_bullets.dart';
 
-const splashScreenBgAnimationDuration = 800;
-
-class DisabledGlowBehaviour extends ScrollBehavior {
-  @override
-  Widget buildOverscrollIndicator(BuildContext context, Widget child, _) {
-    return child;
-  }
-}
+const _splashScreenBgAnimationDuration = 800;
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({super.key});
+  final VoidCallback onActionButtonTap;
+  const OnboardingPage({super.key, required this.onActionButtonTap});
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
@@ -34,14 +30,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     setIsLoggedInToFalse();
 
     _pageController.addListener(() {
-      // if (_pageController.page! > _currentPageTracker) {
-      //   // pageview is being swiped from right to left
-      //   _currentPage = _pageController.page!.ceil().toInt();
-      // } else {
-      //   // pageview is being swiped from left to right
-      //   _currentPage = _pageController.page!.floor().toInt();
-      // }
-
       double maxScrollExtent = _pageController.position.maxScrollExtent;
       double scrollExtentPerSection = maxScrollExtent / 4;
 
@@ -80,24 +68,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    const logoEntry = splashScreenBgAnimationDuration;
+    const logoEntry = _splashScreenBgAnimationDuration;
     const getStartedButtonEntry = logoEntry + 1500;
     const featureTextEntry = getStartedButtonEntry + 800;
     final height = MediaQuery.of(context).size.height;
 
-    final List<OnboardingItem> screenEntityList = [
+    final List<OnboardingItem> onboardingItemList = [
       OnboardingItem(
         id: 'feature_one',
         title: 'Discover & Connect',
         subtitle: 'Explore new possibilities and stay connected effortlessly.',
-        assetImage: 'discover_connect',
+        assetImage:
+            'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/discovery.svg',
         primaryColor: const Color(0xffC53F3F),
       ),
       OnboardingItem(
         id: 'feature_two',
         title: 'Flexibility at Your Fingertips',
         subtitle: 'Use the app the way you want, anytime, anywhere.',
-        assetImage: 'flexibility',
+        assetImage:
+            'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/fingertips.svg',
         primaryColor: const Color(0xff86C163),
       ),
       OnboardingItem(
@@ -105,7 +95,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
         title: 'Optimize & Grow',
         subtitle:
             'Leverage smart tools to enhance your experience and performance.',
-        assetImage: 'optimize_grow',
+        assetImage:
+            'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/grow.svg',
         primaryColor: const Color(0xffff725e),
       ),
       OnboardingItem(
@@ -113,7 +104,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
         title: 'Seamless Transactions',
         subtitle:
             'Manage your activities with ease and get things done faster.',
-        assetImage: 'seamless_transactions',
+        assetImage:
+            'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/money.svg',
         primaryColor: const Color(0xff90CAF9),
       ),
     ];
@@ -147,7 +139,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       physics: const ClampingScrollPhysics(),
                       scrollBehavior: DisabledGlowBehaviour(),
                       controller: _pageController,
-                      children: screenEntityList
+                      children: onboardingItemList
                           .map(
                             (e) => MascotAndDetailContainer(
                               welcomeScreenEntity: e,
@@ -162,30 +154,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     child: Row(
                       children: [
                         PageViewBullets(
-                          pageViewItemListLength: screenEntityList.length,
+                          pageViewItemListLength: onboardingItemList.length,
                           selectedPageIndex: _currentPage,
                           primaryColor:
-                              screenEntityList[_currentPage].primaryColor,
+                              onboardingItemList[_currentPage].primaryColor,
                         ),
                         const Spacer(),
                         ActionButton(
-                          color: screenEntityList[_currentPage].primaryColor,
+                          color: onboardingItemList[_currentPage].primaryColor,
                           onPressed: () {
                             if (_currentPage == 3) {
-                              // Provider.of<InputPhoneNumberData>(context,
-                              //         listen: false)
-                              //     .clear();
-
-                              // // _setHasShownWelcomeScreenToTrue();
-
-                              // Navigator.pushReplacement(
-                              //   context,
-                              //   PageTransition(
-                              //     child: InputPhoneNumberScreen(),
-                              //     type: PageTransitionType.rightToLeft,
-                              //     duration: const Duration(milliseconds: 500),
-                              //   ),
-                              // );
+                              widget.onActionButtonTap();
                             } else {
                               _pageController.nextPage(
                                 duration: const Duration(milliseconds: 300),
@@ -214,127 +193,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
   }
 }
 
-class MascotAndDetailContainer extends StatelessWidget {
-  final OnboardingItem welcomeScreenEntity;
-
-  const MascotAndDetailContainer({
-    super.key,
-    required this.welcomeScreenEntity,
-  });
-
+class DisabledGlowBehaviour extends ScrollBehavior {
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Flexible(
-          flex: 6,
-          child: Container(
-            color: const Color(0xfff7f7f7),
-            padding: const EdgeInsets.only(top: 30),
-            // child: SvgPicture.asset(
-            //   'images/welcome_screen/${welcomeScreenEntity.assetImage}.svg',
-            // ),
-          ),
-        ),
-        Flexible(
-          flex: 4,
-          child: Padding(
-            padding: const EdgeInsets.only(left: 25, right: 60, top: 40),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  welcomeScreenEntity.title,
-                  style: const TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black,
-                  ),
-                ),
-                const SizedBox(height: 30),
-                Text(
-                  welcomeScreenEntity.subtitle,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff757f92),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class PageViewBullets extends StatelessWidget {
-  final int pageViewItemListLength;
-  final int selectedPageIndex;
-  final Color primaryColor;
-
-  const PageViewBullets({
-    super.key,
-    required this.pageViewItemListLength,
-    required this.selectedPageIndex,
-    required this.primaryColor,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: List.generate(pageViewItemListLength, (index) => index)
-          .map(
-            (e) => AnimatedContainer(
-              duration: const Duration(milliseconds: 100),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: e == selectedPageIndex
-                    ? primaryColor
-                    : const Color(0xffd9d9d9),
-              ),
-              height: 6,
-              margin: const EdgeInsets.only(right: 8),
-              width: 6,
-            ),
-          )
-          .toList(),
-    );
-  }
-}
-
-class ActionButton extends StatelessWidget {
-  final Color color;
-  final VoidCallback onPressed;
-
-  const ActionButton({
-    super.key,
-    required this.color,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 350),
-        curve: Curves.easeInOut,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: color,
-        ),
-        padding: const EdgeInsets.all(15),
-        child: RotatedBox(
-          quarterTurns: 2,
-          // You can easily swap it out with SvgPicture.asset to quickly load SVG assets from assets folder.
-          child: SvgPicture.network(
-            'images/long_tail_back_arrow.svg',
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
+  Widget buildOverscrollIndicator(BuildContext context, Widget child, _) {
+    return child;
   }
 }
