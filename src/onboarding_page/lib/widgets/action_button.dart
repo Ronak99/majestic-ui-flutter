@@ -22,14 +22,10 @@ class ActionButton extends StatelessWidget {
           color: color,
         ),
         padding: const EdgeInsets.all(15),
-        // child: RotatedBox(
-        //   quarterTurns: 2,
-        //   // You can easily swap it out with SvgPicture.asset to quickly load SVG assets from assets folder.
-        //   child: SvgPicture.network(
-        //     'images/long_tail_back_arrow.svg',
-        //     color: Colors.white,
-        //   ),
-        // ),
+        child: const Icon(
+          Icons.arrow_forward,
+          color: Colors.white,
+        ),
       ),
     );
   }

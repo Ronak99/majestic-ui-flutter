@@ -14,23 +14,39 @@ class PageViewBullets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: List.generate(pageViewItemListLength, (index) => index)
-          .map(
-            (e) => AnimatedContainer(
-              duration: const Duration(milliseconds: 100),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: e == selectedPageIndex
-                    ? primaryColor
-                    : const Color(0xffd9d9d9),
-              ),
-              height: 6,
-              margin: const EdgeInsets.only(right: 8),
-              width: 6,
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 2,
+            offset: Offset.zero,
           )
-          .toList(),
+        ],
+        borderRadius: BorderRadius.circular(12),
+      ),
+      padding: const EdgeInsets.all(12),
+      child: Row(
+        children: List.generate(pageViewItemListLength, (index) => index)
+            .map(
+              (e) => AnimatedContainer(
+                duration: const Duration(milliseconds: 100),
+                margin: EdgeInsets.only(
+                  right: e == pageViewItemListLength - 1 ? 0 : 8,
+                ),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: e == selectedPageIndex
+                      ? primaryColor
+                      : const Color(0xffd9d9d9),
+                ),
+                height: 8,
+                width: 8,
+              ),
+            )
+            .toList(),
+      ),
     );
   }
 }

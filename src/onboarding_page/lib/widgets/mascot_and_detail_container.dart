@@ -15,13 +15,16 @@ class MascotAndDetailContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        SizedBox(
+          height: MediaQuery.of(context).padding.top + 24,
+        ),
         Flexible(
           flex: 6,
           child: Container(
-            color: const Color(0xfff7f7f7),
             padding: const EdgeInsets.only(top: 30),
             child: SvgPicture.network(
               welcomeScreenEntity.assetImage,
+              height: double.infinity,
             ),
           ),
         ),
@@ -36,7 +39,7 @@ class MascotAndDetailContainer extends StatelessWidget {
                   welcomeScreenEntity.title,
                   style: const TextStyle(
                     fontSize: 30,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w800,
                     color: Colors.black,
                   ),
                 ),
@@ -46,7 +49,7 @@ class MascotAndDetailContainer extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w400,
-                    color: Color(0xff757f92),
+                    color: Colors.black45,
                   ),
                 ),
               ],

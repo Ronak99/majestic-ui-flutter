@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:onboarding_page/widgets/app_logo.dart';
 
 import './models/onboarding_item.dart';
 import 'widgets/action_button.dart';
@@ -80,7 +81,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         subtitle: 'Explore new possibilities and stay connected effortlessly.',
         assetImage:
             'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/discovery.svg',
-        primaryColor: const Color(0xffC53F3F),
+        primaryColor: const Color(0xffff725e),
       ),
       OnboardingItem(
         id: 'feature_two',
@@ -88,7 +89,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         subtitle: 'Use the app the way you want, anytime, anywhere.',
         assetImage:
             'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/fingertips.svg',
-        primaryColor: const Color(0xff86C163),
+        primaryColor: const Color(0xff92e3a9),
       ),
       OnboardingItem(
         id: 'feature_three',
@@ -97,7 +98,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             'Leverage smart tools to enhance your experience and performance.',
         assetImage:
             'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/grow.svg',
-        primaryColor: const Color(0xffff725e),
+        primaryColor: const Color(0xffba68c8),
       ),
       OnboardingItem(
         id: 'feature_four',
@@ -106,7 +107,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             'Manage your activities with ease and get things done faster.',
         assetImage:
             'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/money.svg',
-        primaryColor: const Color(0xff90CAF9),
+        primaryColor: const Color(0xff407bfe),
       ),
     ];
 
@@ -118,12 +119,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
         systemNavigationBarColor: Colors.white,
       ),
       child: Scaffold(
-        appBar: AppBar(
-          systemOverlayStyle: Theme.of(context).appBarTheme.systemOverlayStyle,
-          backgroundColor: const Color(0xfff7f7f7),
-          elevation: 0,
-          toolbarHeight: 0,
-        ),
         body: Container(
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -132,6 +127,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
           height: height,
           child: Stack(
             children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                color: onboardingItemList[_currentPage]
+                    .primaryColor
+                    .withOpacity(.2),
+              ),
               Column(
                 children: [
                   Expanded(
@@ -178,13 +179,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   ),
                 ],
               ),
-              Align(
-                alignment: Alignment.topCenter,
-                child: Image.asset(
-                  'images/pustack_tutor_color_logo.png',
-                  width: MediaQuery.of(context).size.width * .35,
-                ),
-              ),
+              const AppLogo()
             ],
           ),
         ),
