@@ -77,7 +77,7 @@
   },
   {
     "name": "categories_page",
-    "label": "Categories",
+    "label": "Categories Page",
     "description": "Categories Page with baked in state management.",
     "files": [
       {
