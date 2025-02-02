@@ -1,5 +1,5 @@
-name: user_feed
-label: "User Feed"
+name: user_feed_page
+label: "User Feed Page"
 description: "Fully functional tiktok/instagram like user feed, with inbuilt advertisement support and pagination."
 version: 0.0.1
 ignore: true

@@ -12,14 +12,14 @@ import 'package:visibility_detector/visibility_detector.dart';
 import 'models/user_feed_post.dart';
 import 'provider/user_feed_provider.dart';
 
-class UserFeed extends StatefulWidget {
-  const UserFeed({super.key});
+class UserFeedPage extends StatefulWidget {
+  const UserFeedPage({super.key});
 
   @override
-  State<UserFeed> createState() => _UserFeedState();
+  State<UserFeedPage> createState() => _UserFeedPageState();
 }
 
-class _UserFeedState extends State<UserFeed> {
+class _UserFeedPageState extends State<UserFeedPage> {
   @override
   void initState() {
     super.initState();

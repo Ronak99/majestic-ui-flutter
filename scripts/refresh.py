@@ -48,7 +48,7 @@ def scan_dart_projects(src_path):
             "description": pubspec_data.get('description', ''),
             "files": [],
             "dependencies": [dep for dep in pubspec_data.get('dependencies', {}).keys() if dep != "flutter"],
-            "type": "ui",  # Placeholder, you might want to detect this dynamically
+            "type": pubspec_data.get('type', 'widget'),
             "author": "Ronak99",
             "github": "https://github.com/Ronak99"
         }

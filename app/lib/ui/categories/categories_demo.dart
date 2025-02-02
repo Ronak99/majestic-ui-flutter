@@ -1,4 +1,4 @@
-import 'package:categories/categories_view.dart';
+import 'package:categories_page/categories_page.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesDemo extends StatelessWidget {
@@ -6,6 +6,6 @@ class CategoriesDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CategoriesView();
+    return const CategoriesPage();
   }
 }

@@ -2,7 +2,6 @@ import 'package:app/router/router.dart';
 import 'package:device_preview_plus/device_preview_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:user_feed/provider/user_feed_provider.dart';
 
 void main() {
   runApp(
@@ -29,17 +28,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => UserFeedProvider())],
-      child: MaterialApp.router(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          scaffoldBackgroundColor: const Color(0xffffffff),
-          brightness: Brightness.light,
-        ),
-        routerConfig: router,
-        debugShowCheckedModeBanner: false,
+    return MaterialApp.router(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xffffffff),
+        brightness: Brightness.light,
       ),
+      routerConfig: router,
+      debugShowCheckedModeBanner: false,
     );
   }
 }

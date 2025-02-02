@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'shimmer.dart';
 
-class AnimatedGridBackground extends StatelessWidget {
+class GridBackground extends StatelessWidget {
   final Color gridColor;
   final Color animationColor;
   final double gridSpacing;
@@ -12,7 +12,7 @@ class AnimatedGridBackground extends StatelessWidget {
   final Duration duration;
   final int loop;
 
-  const AnimatedGridBackground({
+  const GridBackground({
     super.key,
     this.gridColor = Colors.white30,
     this.animationColor = Colors.white60,
