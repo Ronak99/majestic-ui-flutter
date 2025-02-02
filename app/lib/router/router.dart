@@ -5,12 +5,13 @@ import 'package:app/ui/animated_grid_background/animated_grid_background_demo.da
 import 'package:app/ui/home/demo.dart';
 import 'package:app/ui/star_rush_background/demo.dart';
 import 'package:app/ui/user_feed/demo.dart';
+import 'package:auth_page/auth_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:landing_page/landing_page.dart';
 import 'package:onboarding_page/onboarding_page.dart';
 
 final router = GoRouter(
-  initialLocation: "/onboarding_page",
+  initialLocation: "/auth_page",
   routes: [
     GoRoute(
       path: '/',
@@ -53,6 +54,10 @@ final router = GoRouter(
       builder: (context, state) => OnboardingPage(
         onActionButtonTap: () async {},
       ),
+    ),
+    GoRoute(
+      path: '/auth_page',
+      builder: (context, state) => const AuthPage(),
     ),
   ],
 );
