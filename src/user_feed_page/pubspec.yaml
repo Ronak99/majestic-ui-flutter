@@ -1,7 +1,9 @@
-name: animated_grid_background
-label: Animated Grid Background
-description: "Beautiful animated grid background inspired by CRED."
+name: user_feed
+label: "User Feed"
+description: "Fully functional tiktok/instagram like user feed, with inbuilt advertisement support and pagination."
 version: 0.0.1
+ignore: true
+type: page
 homepage:
 
 environment:
@@ -9,8 +11,14 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  cached_network_image: ^3.4.1
+  custom_refresh_indicator: ^4.0.1
   flutter:
     sdk: flutter
+  flutter_cache_manager: ^3.4.1
+  provider: ^6.1.2
+  video_player: ^2.9.2
+  visibility_detector: ^0.4.0+2
 
 dev_dependencies:
   flutter_test:

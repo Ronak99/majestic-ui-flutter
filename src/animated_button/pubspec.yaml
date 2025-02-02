@@ -2,7 +2,8 @@ name: animated_button
 label: Animated Button
 description: "Beautiful animated button."
 version: 0.0.1
-homepage:
+type: widget
+author: Ronak99
 
 environment:
   sdk: ^3.5.4

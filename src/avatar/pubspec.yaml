@@ -1,8 +1,9 @@
 name: avatar
 label: Avatar
-description: "Beautiful avatar."
+description: "An image element with a fallback for representing the user."
 version: 0.0.1
-homepage:
+type: widget
+author: Ronak99
 
 environment:
   sdk: ^3.5.4

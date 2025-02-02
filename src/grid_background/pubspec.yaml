@@ -1,8 +1,8 @@
-name: empty_state
-description: "Empty states when the data is not available."
-label: Empty State
-ignore: true
+name: grid_background
+label: Grid Background
+description: "Beautiful animated grid background inspired by CRED."
 version: 0.0.1
+type: widget
 homepage:
 
 environment:

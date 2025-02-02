@@ -2,6 +2,7 @@ name: star_rush_background
 label: Star Rush Background
 description: "Beautiful package to elevate your app."
 version: 0.0.1
+type: widget
 homepage:
 
 environment:
