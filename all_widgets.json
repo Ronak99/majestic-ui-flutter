@@ -36,6 +36,22 @@
     "demo": "import 'package:flutter/material.dart';\n\nimport 'majestic/ui/animated_button.dart';\n\nclass AnimatedButtonDemo extends StatelessWidget {\n  const AnimatedButtonDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Center(\n        child: MajesticAnimatedButton(\n          child: const Icon(\n            Icons.person,\n            color: Colors.white,\n          ),\n          onPressed: () {},\n        ),\n      ),\n    );\n  }\n}\n"
   },
   {
+    "name": "auth_page",
+    "label": "Auth Page",
+    "description": "Authenticate your users in style.",
+    "files": [
+      {
+        "name": "auth_page.dart",
+        "dir": "lib/majestic/ui",
+        "content": "library auth_page;\n\n/// A Calculator.\nclass Calculator {\n  /// Returns [value] plus 1.\n  int addOne(int value) => value + 1;\n}\n"
+      }
+    ],
+    "dependencies": [],
+    "type": "page",
+    "author": "Ronak99",
+    "github": "https://github.com/Ronak99"
+  },
+  {
     "name": "grid_background",
     "label": "Grid Background",
     "description": "Beautiful animated grid background inspired by CRED.",
@@ -74,6 +90,22 @@
     "author": "Ronak99",
     "github": "https://github.com/Ronak99",
     "demo": "import 'package:flutter/material.dart';\n\nimport 'majestic/ui/avatar.dart';\n\nclass MajesticAvatarDemo extends StatelessWidget {\n  const MajesticAvatarDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      body: Center(\n        child: Column(\n          mainAxisSize: MainAxisSize.min,\n          children: [\n            Avatar(\n              \"https://picsum.photos/50\",\n              isRound: true,\n              height: 50,\n              width: 50,\n              radius: 2,\n              text: \"Ronak\",\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}\n"
+  },
+  {
+    "name": "landing_page",
+    "label": "Landing Page",
+    "description": "A landing page with Salomon Bottom Navigation bar and state management.",
+    "files": [
+      {
+        "name": "landing_page.dart",
+        "dir": "lib/majestic/ui",
+        "content": "library landing_page;\n\n/// A Calculator.\nclass Calculator {\n  /// Returns [value] plus 1.\n  int addOne(int value) => value + 1;\n}\n"
+      }
+    ],
+    "dependencies": [],
+    "type": "page",
+    "author": "Ronak99",
+    "github": "https://github.com/Ronak99"
   },
   {
     "name": "categories_page",
@@ -139,6 +171,22 @@
     "dependencies": [
       "provider"
     ],
+    "type": "page",
+    "author": "Ronak99",
+    "github": "https://github.com/Ronak99"
+  },
+  {
+    "name": "onboarding_page",
+    "label": "Onboarding Page",
+    "description": "Beautiful onboarding page for you to quickly get started.",
+    "files": [
+      {
+        "name": "onboarding_page.dart",
+        "dir": "lib/majestic/ui",
+        "content": "library onboarding_page;\n\n/// A Calculator.\nclass Calculator {\n  /// Returns [value] plus 1.\n  int addOne(int value) => value + 1;\n}\n"
+      }
+    ],
+    "dependencies": [],
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
