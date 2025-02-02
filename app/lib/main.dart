@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       backgroundColor: Colors.black,
       defaultDevice: DeviceInfo.genericPhone(
         platform: TargetPlatform.iOS,
