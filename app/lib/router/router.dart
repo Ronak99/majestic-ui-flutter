@@ -6,9 +6,11 @@ import 'package:app/ui/home/demo.dart';
 import 'package:app/ui/star_rush_background/demo.dart';
 import 'package:app/ui/user_feed/demo.dart';
 import 'package:go_router/go_router.dart';
+import 'package:landing_page/landing_page.dart';
+import 'package:onboarding_page/onboarding_page.dart';
 
 final router = GoRouter(
-  initialLocation: "/user_feed",
+  initialLocation: "/onboarding_page",
   routes: [
     GoRoute(
       path: '/',
@@ -41,6 +43,14 @@ final router = GoRouter(
     GoRoute(
       path: '/animated_grid_background',
       builder: (context, state) => const AnimatedGridBackgroundDemo(),
+    ),
+    GoRoute(
+      path: '/landing_page',
+      builder: (context, state) => const LandingPage(),
+    ),
+    GoRoute(
+      path: '/onboarding_page',
+      builder: (context, state) => const OnboardingPage(),
     ),
   ],
 );

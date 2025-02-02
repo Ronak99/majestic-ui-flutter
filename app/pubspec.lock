@@ -273,6 +273,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.9.0"
+  landing_page:
+    dependency: "direct main"
+    description:
+      path: "../src/landing_page"
+      relative: true
+    source: path
+    version: "0.0.1"
   leak_tracker:
     dependency: transitive
     description:
@@ -361,6 +368,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  onboarding_page:
+    dependency: "direct main"
+    description:
+      path: "../src/onboarding_page"
+      relative: true
+    source: path
+    version: "0.0.1"
   path:
     dependency: transitive
     description:
@@ -449,6 +463,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.28.0"
+  salomon_bottom_bar:
+    dependency: transitive
+    description:
+      name: salomon_bottom_bar
+      sha256: e20abf2e449749432223a8b4e6647c212eef6c2b638e0ed8cc92eff9529c2b48
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.2"
   shared_preferences:
     dependency: transitive
     description:

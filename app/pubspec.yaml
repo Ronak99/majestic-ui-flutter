@@ -48,6 +48,10 @@ dependencies:
     path: "../src/categories_page"
   grid_background:
     path: "../src/grid_background"
+  landing_page:
+    path: "../src/landing_page"
+  onboarding_page:
+    path: "../src/onboarding_page"
   device_preview_plus: ^2.1.4
 
 dev_dependencies:

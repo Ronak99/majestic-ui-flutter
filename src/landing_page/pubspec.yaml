@@ -12,6 +12,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^6.1.2
+  salomon_bottom_bar: ^3.3.2
 
 dev_dependencies:
   flutter_test:
