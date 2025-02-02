@@ -1,6 +1,6 @@
 name: categories_page
+label: "Categories Page"
 description: "Categories Page with baked in state management."
-label: "Categories"
 version: 0.0.1
 type: page
 author: Ronak99
