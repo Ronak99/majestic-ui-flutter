@@ -1,7 +1,7 @@
 import 'package:app/ui/animated_button/demo.dart';
 import 'package:app/ui/avatar/demo.dart';
 import 'package:app/ui/categories/categories_demo.dart';
-import 'package:app/ui/animated_grid_background/animated_grid_background_demo.dart';
+import 'package:app/ui/grid_background/grid_background_demo.dart';
 import 'package:app/ui/home/demo.dart';
 import 'package:app/ui/star_rush_background/demo.dart';
 import 'package:app/ui/user_feed/demo.dart';
@@ -42,8 +42,8 @@ final router = GoRouter(
       builder: (context, state) => const CategoriesDemo(),
     ),
     GoRoute(
-      path: '/animated_grid_background',
-      builder: (context, state) => const AnimatedGridBackgroundDemo(),
+      path: '/grid_background',
+      builder: (context, state) => const GridBackgroundDemo(),
     ),
     GoRoute(
       path: '/landing_page',
