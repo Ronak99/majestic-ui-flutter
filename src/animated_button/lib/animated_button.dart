@@ -29,8 +29,8 @@ class AnimationOptions {
     return const AnimationOptions(
       frequency: 8,
       amplitude: 45,
-      speed: 4,
-      grain: 0.5,
+      speed: 8,
+      grain: 0.2,
     );
   }
 }
