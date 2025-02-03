@@ -1,7 +1,7 @@
-import 'package:auth_page/colors.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+import './colors.dart';
 import 'widgets/oauth_button.dart';
 import 'widgets/section_separator.dart';
 

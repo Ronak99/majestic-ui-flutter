@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:onboarding_page/widgets/app_logo.dart';
 
+import './widgets/app_logo.dart';
 import './models/onboarding_item.dart';
 import 'widgets/action_button.dart';
 import 'widgets/mascot_and_detail_container.dart';

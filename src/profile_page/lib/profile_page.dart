@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:profile_page/models/option_item.dart';
+import './models/option_item.dart';
 
 const double basePadding = 16;
 const double userDetailFraction = .45;
