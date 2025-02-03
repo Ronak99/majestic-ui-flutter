@@ -11,7 +11,7 @@ import 'package:landing_page/landing_page.dart';
 import 'package:onboarding_page/onboarding_page.dart';
 
 final router = GoRouter(
-  initialLocation: "/auth_page",
+  initialLocation: "/animated_button",
   routes: [
     GoRoute(
       path: '/',
@@ -27,7 +27,7 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/animated_button',
-      builder: (context, state) => const MajesticAnimatedButtonDemo(),
+      builder: (context, state) => const AnimatedButtonDemo(),
     ),
     GoRoute(
       path: '/user_feed',
