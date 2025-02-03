@@ -494,6 +494,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  profile_page:
+    dependency: "direct main"
+    description:
+      path: "../src/profile_page"
+      relative: true
+    source: path
+    version: "0.0.1"
   provider:
     dependency: transitive
     description:

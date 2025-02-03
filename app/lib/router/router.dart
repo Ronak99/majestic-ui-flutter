@@ -9,9 +9,10 @@ import 'package:auth_page/auth_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:landing_page/landing_page.dart';
 import 'package:onboarding_page/onboarding_page.dart';
+import 'package:profile_page/profile_page.dart';
 
 final router = GoRouter(
-  initialLocation: "/categories_page",
+  initialLocation: "/",
   routes: [
     GoRoute(
       path: '/',
@@ -58,6 +59,10 @@ final router = GoRouter(
     GoRoute(
       path: '/auth_page',
       builder: (context, state) => const AuthPage(),
+    ),
+    GoRoute(
+      path: '/profile_page',
+      builder: (context, state) => const ProfilePage(),
     ),
   ],
 );

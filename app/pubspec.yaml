@@ -55,6 +55,8 @@ dependencies:
     path: "../src/onboarding_page"
   auth_page:
     path: "../src/auth_page"
+  profile_page:
+    path: "../src/profile_page"
 
 dev_dependencies:
   flutter_test:
