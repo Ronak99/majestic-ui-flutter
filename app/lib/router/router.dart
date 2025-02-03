@@ -1,6 +1,6 @@
 import 'package:app/ui/animated_button/demo.dart';
 import 'package:app/ui/avatar/demo.dart';
-import 'package:app/ui/categories/categories_demo.dart';
+import 'package:app/ui/categories_page/categories_page_demo.dart';
 import 'package:app/ui/grid_background/grid_background_demo.dart';
 import 'package:app/ui/home/demo.dart';
 import 'package:app/ui/star_rush_background/demo.dart';
@@ -11,7 +11,7 @@ import 'package:landing_page/landing_page.dart';
 import 'package:onboarding_page/onboarding_page.dart';
 
 final router = GoRouter(
-  initialLocation: "/animated_button",
+  initialLocation: "/categories_page",
   routes: [
     GoRoute(
       path: '/',
@@ -38,8 +38,8 @@ final router = GoRouter(
       builder: (context, state) => const StarRushBackgroundDemo(),
     ),
     GoRoute(
-      path: '/categories',
-      builder: (context, state) => const CategoriesDemo(),
+      path: '/categories_page',
+      builder: (context, state) => const CategoriesPageDemo(),
     ),
     GoRoute(
       path: '/grid_background',

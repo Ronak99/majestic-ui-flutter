@@ -80,15 +80,11 @@ class ProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewWidth = MediaQuery.of(context).size.width -
-        leftPanelWidth -
-        (defaultViewPadding * 2);
-
     return GridView.builder(
       padding: const EdgeInsets.all(defaultViewPadding),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 0.6,
+        childAspectRatio: 0.5,
         crossAxisSpacing: 8,
         mainAxisSpacing: 6,
       ),
@@ -115,131 +111,128 @@ class ProductCard extends StatelessWidget {
         color: Colors.white,
       ),
       child: LayoutBuilder(builder: (context, constraints) {
-        return SingleChildScrollView(
-          // Add scrolling if needed
-          child: Column(
-            mainAxisSize: MainAxisSize.min, // Use minimum space needed
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Image section with aspect ratio
-              ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(12)),
-                child: Container(
-                  width: double.infinity,
-                  height: 120,
-                  color: lightBackgroundColor,
-                  // child: Image.network(
-                  //   product.imageUrl,
-                  //   fit: BoxFit.cover,
-                  // ),
+        return Column(
+          mainAxisSize: MainAxisSize.min, // Use minimum space needed
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Image section with aspect ratio
+            ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
+              child: Container(
+                width: double.infinity,
+                height: 120,
+                color: lightBackgroundColor,
+                // child: Image.network(
+                //   product.imageUrl,
+                //   fit: BoxFit.cover,
+                // ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            // Product details section
+            Column(
+              mainAxisSize: MainAxisSize.min, // Use minimum space needed
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    CustomChip(text: '${product.weight}g'),
+                    const SizedBox(width: 4),
+                    const CustomChip(text: 'Chocolate Chip'),
+                  ],
                 ),
-              ),
-              const SizedBox(height: 8),
-              // Product details section
-              Column(
-                mainAxisSize: MainAxisSize.min, // Use minimum space needed
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      CustomChip(text: '${product.weight}g'),
-                      const SizedBox(width: 4),
-                      const CustomChip(text: 'Chocolate Chip'),
-                    ],
+                const SizedBox(height: 4),
+                Text(
+                  product.name,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    product.name,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
+                ),
+                const SizedBox(height: 2),
+                // Rating row
+                Row(
+                  children: [
+                    ...List.generate(
+                      5,
+                      (e) => const Icon(
+                        Icons.star,
+                        size: 14,
+                        color: Colors.amber,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 2),
-                  // Rating row
-                  Row(
-                    children: [
-                      ...List.generate(
-                        5,
-                        (e) => const Icon(
-                          Icons.star,
-                          size: 14,
-                          color: Colors.amber,
+                    const SizedBox(width: 4),
+                    const Text(
+                      '(30,895)',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                // Delivery time row
+                Row(
+                  children: [
+                    Icon(
+                      Icons.access_time,
+                      size: 10,
+                      color: Colors.green[800]!,
+                    ),
+                    Text(
+                      ' ${product.deliveryTime} MINS',
+                      style: TextStyle(
+                        color: Colors.grey[800],
+                        fontSize: 8,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+                // Price row
+                Row(
+                  children: [
+                    Expanded(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Row(
+                          children: [
+                            Text(
+                              '₹${product.price}',
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              'MRP ',
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                                fontSize: 10,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                            Text(
+                              '₹${product.mrp}',
+                              style: TextStyle(
+                                decoration: TextDecoration.lineThrough,
+                                color: Colors.grey[700],
+                                fontSize: 10,
+                                fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
-                      const SizedBox(width: 4),
-                      const Text(
-                        '(30,895)',
-                        style: TextStyle(fontSize: 10),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  // Delivery time row
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.access_time,
-                        size: 10,
-                        color: Colors.green[800]!,
-                      ),
-                      Text(
-                        ' ${product.deliveryTime} MINS',
-                        style: TextStyle(
-                          color: Colors.grey[800],
-                          fontSize: 8,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  // Price row
-                  Row(
-                    children: [
-                      Expanded(
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          alignment: Alignment.centerLeft,
-                          child: Row(
-                            children: [
-                              Text(
-                                '₹${product.price}',
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              const SizedBox(width: 4),
-                              Text(
-                                'MRP ',
-                                style: TextStyle(
-                                  color: Colors.grey[700],
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                              Text(
-                                '₹${product.mrp}',
-                                style: TextStyle(
-                                  decoration: TextDecoration.lineThrough,
-                                  color: Colors.grey[700],
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
         );
       }),
     );
