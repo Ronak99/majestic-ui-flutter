@@ -14,12 +14,18 @@ class AvatarDemo extends StatelessWidget {
             Avatar(
               "https://picsum.photos/50",
               isRound: true,
-              height: 50,
-              width: 50,
-              radius: 2,
+              height: 75,
+              width: 75,
               text: "Ronak",
             ),
-            Text("ronak"),
+            SizedBox(height: 4),
+            Text(
+              "Ronak",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 20,
+              ),
+            ),
           ],
         ),
       ),

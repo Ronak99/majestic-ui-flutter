@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'majestic/ui/avatar.dart';
 
-class MajesticAvatarDemo extends StatelessWidget {
-  const MajesticAvatarDemo({super.key});
+class AvatarDemo extends StatelessWidget {
+  const AvatarDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +20,7 @@ class MajesticAvatarDemo extends StatelessWidget {
               radius: 2,
               text: "Ronak",
             ),
+            Text("Ronak"),
           ],
         ),
       ),

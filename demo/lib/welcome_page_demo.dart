@@ -1,5 +1,6 @@
-import 'majestic/ui/welcome_page/welcome_page.dart';
 import 'package:flutter/material.dart';
+
+import 'majestic/ui/welcome_page/welcome_page.dart';
 
 class WelcomePageDemo extends StatelessWidget {
   const WelcomePageDemo({super.key});
