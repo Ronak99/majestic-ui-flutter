@@ -1,4 +1,3 @@
-import 'package:demo/majestic/ui/onboarding_page/onboarding_page.dart';
 import 'package:demo/majestic/ui/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
 
