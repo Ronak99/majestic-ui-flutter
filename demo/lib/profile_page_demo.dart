@@ -1,4 +1,4 @@
-import 'package:demo/majestic/ui/profile_page/profile_page.dart';
+import 'majestic/ui/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePageDemo extends StatelessWidget {

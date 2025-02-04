@@ -1,4 +1,4 @@
-import 'package:demo/majestic/ui/auth_page/auth_page.dart';
+import 'majestic/ui/auth_page/auth_page.dart';
 import 'package:flutter/material.dart';
 
 class AuthPageDemo extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:demo/majestic/ui/grid_background/grid_background.dart';
+import 'majestic/ui/grid_background/grid_background.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedGridBackgroundDemo extends StatelessWidget {

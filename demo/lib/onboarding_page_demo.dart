@@ -1,4 +1,4 @@
-import 'package:demo/majestic/ui/onboarding_page/onboarding_page.dart';
+import 'majestic/ui/onboarding_page/onboarding_page.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPageDemo extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:demo/majestic/ui/landing_page/landing_page.dart';
+import 'majestic/ui/landing_page/landing_page.dart';
 
 class LandingPageDemo extends StatelessWidget {
   const LandingPageDemo({super.key});

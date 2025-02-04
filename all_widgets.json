@@ -19,7 +19,7 @@
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99",
-    "demo": "import 'package:demo/majestic/ui/profile_page/profile_page.dart';\nimport 'package:flutter/material.dart';\n\nclass ProfilePageDemo extends StatelessWidget {\n  const ProfilePageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const ProfilePage();\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const ProfilePage(),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n"
+    "demo": "import 'majestic/ui/profile_page/profile_page.dart';\nimport 'package:flutter/material.dart';\n\nclass ProfilePageDemo extends StatelessWidget {\n  const ProfilePageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const ProfilePage();\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const ProfilePage(),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n"
   },
   {
     "name": "star_rush_background",
@@ -89,7 +89,7 @@
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99",
-    "demo": "import 'package:demo/majestic/ui/auth_page/auth_page.dart';\nimport 'package:flutter/material.dart';\n\nclass AuthPageDemo extends StatelessWidget {\n  const AuthPageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const AuthPage();\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const AuthPage(),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n"
+    "demo": "import 'majestic/ui/auth_page/auth_page.dart';\nimport 'package:flutter/material.dart';\n\nclass AuthPageDemo extends StatelessWidget {\n  const AuthPageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const AuthPage();\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const AuthPage(),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n"
   },
   {
     "name": "grid_background",
@@ -111,7 +111,7 @@
     "type": "widget",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99",
-    "demo": "import 'package:demo/majestic/ui/grid_background/grid_background.dart';\nimport 'package:flutter/material.dart';\n\nclass AnimatedGridBackgroundDemo extends StatelessWidget {\n  const AnimatedGridBackgroundDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      backgroundColor: Colors.black,\n      // By default renders a white coloured grid, therefore looks best on a black background.\n      body: GridBackground(),\n    );\n  }\n}\n"
+    "demo": "import 'majestic/ui/grid_background/grid_background.dart';\nimport 'package:flutter/material.dart';\n\nclass AnimatedGridBackgroundDemo extends StatelessWidget {\n  const AnimatedGridBackgroundDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      backgroundColor: Colors.black,\n      // By default renders a white coloured grid, therefore looks best on a black background.\n      body: GridBackground(),\n    );\n  }\n}\n"
   },
   {
     "name": "avatar",
@@ -165,7 +165,7 @@
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99",
-    "demo": "import 'package:flutter/material.dart';\n\nimport 'package:demo/majestic/ui/landing_page/landing_page.dart';\n\nclass LandingPageDemo extends StatelessWidget {\n  const LandingPageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const LandingPage();\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const LandingPage(),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n"
+    "demo": "import 'package:flutter/material.dart';\n\nimport 'majestic/ui/landing_page/landing_page.dart';\n\nclass LandingPageDemo extends StatelessWidget {\n  const LandingPageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const LandingPage();\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const LandingPage(),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n"
   },
   {
     "name": "categories_page",
@@ -278,6 +278,6 @@
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99",
-    "demo": "import 'package:demo/majestic/ui/onboarding_page/onboarding_page.dart';\nimport 'package:flutter/material.dart';\n\nclass OnboardingPageDemo extends StatelessWidget {\n  const OnboardingPageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return OnboardingPage(\n      onActionButtonTap: () {\n        // navigate to app entry page.\n      },\n    );\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => OnboardingPage(\n              onActionButtonTap: () {\n                // navigate to app entry page.\n              },\n            ),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n"
+    "demo": "import 'majestic/ui/onboarding_page/onboarding_page.dart';\nimport 'package:flutter/material.dart';\n\nclass OnboardingPageDemo extends StatelessWidget {\n  const OnboardingPageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return OnboardingPage(\n      onActionButtonTap: () {\n        // navigate to app entry page.\n      },\n    );\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => OnboardingPage(\n              onActionButtonTap: () {\n                // navigate to app entry page.\n              },\n            ),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n"
   }
 ]
