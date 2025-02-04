@@ -12,7 +12,7 @@ import 'package:onboarding_page/onboarding_page.dart';
 import 'package:profile_page/profile_page.dart';
 
 final router = GoRouter(
-  initialLocation: "/star_rush_background",
+  initialLocation: "/profile_page",
   routes: [
     GoRoute(
       path: '/',

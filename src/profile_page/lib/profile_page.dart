@@ -11,7 +11,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    final double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SizedBox(
         width: double.infinity,
@@ -52,15 +52,16 @@ class ProfilePage extends StatelessWidget {
 
                       // User Image
                       const CircleAvatar(
-                        backgroundImage:
-                            NetworkImage("https://www.picsum.photos/100"),
+                        backgroundImage: NetworkImage(
+                          "https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/avatar.jpg",
+                        ),
                         radius: 75,
                       ),
 
                       const SizedBox(height: 12),
 
                       const Text(
-                        "Ronak Punase",
+                        "Avatar",
                         style: TextStyle(
                           fontWeight: FontWeight.w700,
                           color: Colors.white,
@@ -71,7 +72,7 @@ class ProfilePage extends StatelessWidget {
                       const SizedBox(height: 4),
 
                       const Text(
-                        "Flutter Developer",
+                        "Literally.",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           color: Colors.white70,
