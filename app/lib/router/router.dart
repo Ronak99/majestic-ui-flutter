@@ -51,7 +51,7 @@ final router = GoRouter(
       builder: (context, state) => const LandingPage(),
     ),
     GoRoute(
-      path: '/onboarding_page',
+      path: '/welcome_page',
       builder: (context, state) => WelcomePage(
         onActionButtonTap: () async {},
       ),
