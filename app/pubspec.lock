@@ -399,13 +399,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
-  onboarding_page:
-    dependency: "direct main"
-    description:
-      path: "../src/onboarding_page"
-      relative: true
-    source: path
-    version: "0.0.1"
   path:
     dependency: transitive
     description:
@@ -816,6 +809,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  welcome_page:
+    dependency: "direct main"
+    description:
+      path: "../src/welcome_page"
+      relative: true
+    source: path
+    version: "0.0.1"
   xdg_directories:
     dependency: transitive
     description:

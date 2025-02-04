@@ -51,8 +51,8 @@ dependencies:
     path: "../src/grid_background"
   landing_page:
     path: "../src/landing_page"
-  onboarding_page:
-    path: "../src/onboarding_page"
+  welcome_page:
+    path: "../src/welcome_page"
   auth_page:
     path: "../src/auth_page"
   profile_page:

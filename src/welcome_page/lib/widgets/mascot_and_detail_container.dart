@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../models/onboarding_item.dart';
+import '../models/page_item.dart';
 
 class MascotAndDetailContainer extends StatelessWidget {
-  final OnboardingItem welcomeScreenEntity;
+  final PageItem pageItem;
 
   const MascotAndDetailContainer({
     super.key,
-    required this.welcomeScreenEntity,
+    required this.pageItem,
   });
 
   @override
@@ -23,7 +23,7 @@ class MascotAndDetailContainer extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.only(top: 30),
             child: SvgPicture.network(
-              welcomeScreenEntity.assetImage,
+              pageItem.assetImage,
               height: double.infinity,
             ),
           ),
@@ -36,7 +36,7 @@ class MascotAndDetailContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  welcomeScreenEntity.title,
+                  pageItem.title,
                   style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w800,
@@ -45,7 +45,7 @@ class MascotAndDetailContainer extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 Text(
-                  welcomeScreenEntity.subtitle,
+                  pageItem.subtitle,
                   style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.w400,

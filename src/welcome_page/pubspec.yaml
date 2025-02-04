@@ -1,6 +1,6 @@
-name: onboarding_page
-label: "Onboarding Page"
-description: "Beautiful onboarding page for you to quickly get started."
+name: welcome_page
+label: "Welcome Page"
+description: "Beautiful welcome page for you to quickly get started."
 version: 0.0.1
 type: page
 author: Ronak99

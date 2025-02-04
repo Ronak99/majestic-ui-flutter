@@ -2,27 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import './widgets/app_logo.dart';
-import './models/onboarding_item.dart';
+import 'models/page_item.dart';
 import 'widgets/action_button.dart';
 import 'widgets/mascot_and_detail_container.dart';
 import 'widgets/pageview_bullets.dart';
 
 const _splashScreenBgAnimationDuration = 800;
 
-class OnboardingPage extends StatefulWidget {
+class WelcomePage extends StatefulWidget {
   final VoidCallback onActionButtonTap;
-  const OnboardingPage({super.key, required this.onActionButtonTap});
+  const WelcomePage({super.key, required this.onActionButtonTap});
 
   @override
-  State<OnboardingPage> createState() => _OnboardingPageState();
+  State<WelcomePage> createState() => _WelcomePageState();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _WelcomePageState extends State<WelcomePage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  final double _currentPageTracker = 0;
-
-  final double _offset = 85;
 
   @override
   void initState() {
@@ -69,13 +66,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
-    const logoEntry = _splashScreenBgAnimationDuration;
-    const getStartedButtonEntry = logoEntry + 1500;
-    const featureTextEntry = getStartedButtonEntry + 800;
     final height = MediaQuery.of(context).size.height;
 
-    final List<OnboardingItem> onboardingItemList = [
-      OnboardingItem(
+    final List<PageItem> pageItemList = [
+      PageItem(
         id: 'feature_one',
         title: 'Discover & Connect',
         subtitle: 'Explore new possibilities and stay connected effortlessly.',
@@ -83,7 +77,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/discovery.svg',
         primaryColor: const Color(0xffff725e),
       ),
-      OnboardingItem(
+      PageItem(
         id: 'feature_two',
         title: 'Flexibility at Your Fingertips',
         subtitle: 'Use the app the way you want, anytime, anywhere.',
@@ -91,7 +85,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/fingertips.svg',
         primaryColor: const Color(0xff92e3a9),
       ),
-      OnboardingItem(
+      PageItem(
         id: 'feature_three',
         title: 'Optimize & Grow',
         subtitle:
@@ -100,7 +94,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             'https://raw.githubusercontent.com/Ronak99/majestic-ui-flutter/refs/heads/master/assets/grow.svg',
         primaryColor: const Color(0xffba68c8),
       ),
-      OnboardingItem(
+      PageItem(
         id: 'feature_four',
         title: 'Seamless Transactions',
         subtitle:
@@ -129,9 +123,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
             children: [
               AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                color: onboardingItemList[_currentPage]
-                    .primaryColor
-                    .withOpacity(.2),
+                color: pageItemList[_currentPage].primaryColor.withOpacity(.2),
               ),
               Column(
                 children: [
@@ -140,10 +132,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       physics: const ClampingScrollPhysics(),
                       scrollBehavior: DisabledGlowBehaviour(),
                       controller: _pageController,
-                      children: onboardingItemList
+                      children: pageItemList
                           .map(
                             (e) => MascotAndDetailContainer(
-                              welcomeScreenEntity: e,
+                              pageItem: e,
                             ),
                           )
                           .toList(),
@@ -155,14 +147,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     child: Row(
                       children: [
                         PageViewBullets(
-                          pageViewItemListLength: onboardingItemList.length,
+                          pageViewItemListLength: pageItemList.length,
                           selectedPageIndex: _currentPage,
-                          primaryColor:
-                              onboardingItemList[_currentPage].primaryColor,
+                          primaryColor: pageItemList[_currentPage].primaryColor,
                         ),
                         const Spacer(),
                         ActionButton(
-                          color: onboardingItemList[_currentPage].primaryColor,
+                          color: pageItemList[_currentPage].primaryColor,
                           onPressed: () {
                             if (_currentPage == 3) {
                               widget.onActionButtonTap();

@@ -1,12 +1,12 @@
-import 'majestic/ui/onboarding_page/onboarding_page.dart';
+import 'majestic/ui/welcome_page/welcome_page.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingPageDemo extends StatelessWidget {
-  const OnboardingPageDemo({super.key});
+class WelcomePageDemo extends StatelessWidget {
+  const WelcomePageDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return OnboardingPage(
+    return WelcomePage(
       onActionButtonTap: () {
         // navigate to app entry page.
       },
@@ -25,7 +25,7 @@ class ParentPage extends StatelessWidget {
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => OnboardingPage(
+            builder: (context) => WelcomePage(
               onActionButtonTap: () {
                 // navigate to app entry page.
               },

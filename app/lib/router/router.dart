@@ -8,8 +8,8 @@ import 'package:app/ui/user_feed/demo.dart';
 import 'package:auth_page/auth_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:landing_page/landing_page.dart';
-import 'package:onboarding_page/onboarding_page.dart';
 import 'package:profile_page/profile_page.dart';
+import 'package:welcome_page/welcome_page.dart';
 
 final router = GoRouter(
   initialLocation: "/profile_page",
@@ -52,7 +52,7 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/onboarding_page',
-      builder: (context, state) => OnboardingPage(
+      builder: (context, state) => WelcomePage(
         onActionButtonTap: () async {},
       ),
     ),
