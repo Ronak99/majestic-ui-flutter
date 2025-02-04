@@ -42,6 +42,9 @@ dependencies:
   video_player: ^2.9.2
   visibility_detector: ^0.4.0+2
   mesh_gradient: ^1.3.8
+  auto_size_text: ^3.0.0
+  salomon_bottom_bar: ^3.3.2
+  flutter_svg: ^2.0.17
 
 dev_dependencies:
   flutter_test:

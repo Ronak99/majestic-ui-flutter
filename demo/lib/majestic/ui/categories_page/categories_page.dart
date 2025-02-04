@@ -6,8 +6,8 @@ import './ui/sections/main/categories_main_view.dart';
 import './utils/dimensions.dart';
 import './ui/sections/left/categories_left_panel.dart';
 
-class CategoriesView extends StatelessWidget {
-  const CategoriesView({super.key});
+class CategoriesPage extends StatelessWidget {
+  const CategoriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {

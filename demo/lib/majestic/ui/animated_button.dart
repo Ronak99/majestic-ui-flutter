@@ -29,13 +29,13 @@ class AnimationOptions {
     return const AnimationOptions(
       frequency: 8,
       amplitude: 45,
-      speed: 4,
-      grain: 0.5,
+      speed: 8,
+      grain: 0.2,
     );
   }
 }
 
-class MajesticAnimatedButton extends StatelessWidget {
+class AnimatedButton extends StatelessWidget {
   final dynamic child;
   final VoidCallback onPressed;
   final EdgeInsets padding;
@@ -43,7 +43,7 @@ class MajesticAnimatedButton extends StatelessWidget {
   final List<Color>? colors;
   final AnimationOptions options;
 
-  const MajesticAnimatedButton({
+  const AnimatedButton({
     super.key,
     required this.child,
     this.padding = const EdgeInsets.symmetric(horizontal: 18, vertical: 6),

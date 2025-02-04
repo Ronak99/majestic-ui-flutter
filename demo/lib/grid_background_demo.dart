@@ -1,6 +1,5 @@
+import 'package:demo/majestic/ui/grid_background/grid_background.dart';
 import 'package:flutter/material.dart';
-
-import 'majestic/ui/animated_grid_background/animated_grid_background.dart';
 
 class AnimatedGridBackgroundDemo extends StatelessWidget {
   const AnimatedGridBackgroundDemo({super.key});
@@ -9,7 +8,8 @@ class AnimatedGridBackgroundDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.black,
-      body: AnimatedGridBackground(),
+      // By default renders a white coloured grid, therefore looks best on a black background.
+      body: GridBackground(),
     );
   }
 }

@@ -7,9 +7,22 @@ class StarRushBackgroundDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: StarRushBackground(
-        speed: 5,
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          StarRushBackground(
+            speed: 750,
+            maxRadius: 2,
+            minRadius: 1,
+            colors: [
+              Colors.blue[100]!,
+              Colors.blue[300]!,
+              Colors.red[200]!,
+              Colors.white,
+            ],
+          ),
+        ],
       ),
     );
   }
