@@ -7,18 +7,24 @@ import 'package:flutter/material.dart';
 class StarRushBackground extends StatefulWidget {
   /// speed must be in range: 0 to 1000
   final double speed;
+  final List<Color> colors;
   final double starSpeed;
+  final double minRadius;
+  final double maxRadius;
 
   const StarRushBackground({
     super.key,
     required this.speed,
+    this.minRadius = 2,
+    this.maxRadius = 6,
+    this.colors = const [],
   }) : starSpeed = speed / 1000;
 
   @override
-  State<StarRushBackground> createState() => _RushingStarsViewState();
+  State<StarRushBackground> createState() => _StarRushBackgroundState();
 }
 
-class _RushingStarsViewState extends State<StarRushBackground> {
+class _StarRushBackgroundState extends State<StarRushBackground> {
   Timer? timer;
   List<Star> stars = [];
   int numStars = 500;
@@ -32,14 +38,7 @@ class _RushingStarsViewState extends State<StarRushBackground> {
       final double width = MediaQuery.of(context).size.width;
 
       while (stars.length < numStars) {
-        stars.add(
-          Star(
-            x: StarsUtils.range(0, width),
-            y: StarsUtils.range(0, height),
-            canvasHeight: height,
-            canvasWidth: width,
-          ),
-        );
+        addStar(height: height, width: width);
       }
 
       // refresh rate of 60
@@ -50,6 +49,21 @@ class _RushingStarsViewState extends State<StarRushBackground> {
     });
   }
 
+  void addStar({required double height, required double width}) {
+    stars.add(
+      Star(
+        x: StarsUtils.range(0, width),
+        y: StarsUtils.range(0, height),
+        canvasHeight: height,
+        canvasWidth: width,
+        radius: StarsUtils.range(widget.minRadius, widget.maxRadius),
+        color: widget.colors.isEmpty
+            ? StarsUtils.generateRandomColor()
+            : widget.colors[StarsUtils.rangeInt(widget.colors.length - 1)],
+      ),
+    );
+  }
+
   _logic(height, width) {
     stars = stars.where((star) {
       star.update(widget.starSpeed);
@@ -57,14 +71,7 @@ class _RushingStarsViewState extends State<StarRushBackground> {
     }).toList();
 
     while (stars.length < numStars) {
-      stars.add(
-        Star(
-          x: StarsUtils.range(0, width),
-          y: StarsUtils.range(0, height),
-          canvasHeight: height,
-          canvasWidth: width,
-        ),
-      );
+      addStar(height: height, width: width);
     }
 
     if (mounted) {
@@ -99,9 +106,9 @@ class Star {
     required double y,
     required this.canvasHeight,
     required this.canvasWidth,
-  })  : color = StarsUtils.generateRandomColor(),
-        radius = StarsUtils.range(2, 6),
-        pos = Offset(x, y),
+    required this.radius,
+    required this.color,
+  })  : pos = Offset(x, y),
         prevPos = Offset(x, y),
         vel = Offset.zero,
         ang = atan2(y - (canvasHeight / 2.5), x - (canvasWidth / 2));
@@ -133,8 +140,6 @@ class Star {
 class StarsUtils {
   static final random = Random();
 
-  static bool getRandomBool() => random.nextBool();
-
   static Color generateRandomColor() {
     int red = random.nextInt(156) + 100;
     int green = random.nextInt(156) + 100;
@@ -150,6 +155,8 @@ class StarsUtils {
 
   static double range(double min, double max) =>
       random.nextDouble() * (max - min) + min;
+
+  static int rangeInt(int max) => random.nextInt(max);
 }
 
 class StarPainter extends CustomPainter {
