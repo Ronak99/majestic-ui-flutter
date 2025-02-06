@@ -29,7 +29,7 @@ jobs:
       - name: Update All Widgets JSON
         run: |
           python scripts/refresh.py
-          cp all_widgets.json /home/runner/work/majestic-ui-flutter/majestic-ui-flutter/
+          cp all_widgets.json /home/runner/work/majestic-ui-flutter/majestic-ui-data-source/
 
       # Step 5: Commit and push changes
       - name: Commit and Push Changes
