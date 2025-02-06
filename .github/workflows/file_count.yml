@@ -30,7 +30,7 @@ jobs:
         run: python majestic-ui-flutter/.github/scripts/count_files.py
         env:
           FLUTTER_REPO_PATH: ./majestic-ui-flutter
-          DATASOURCE_REPO_PATH: /home/runner/work/majestic-ui-data-source/majestic-ui-data-source
+          DATASOURCE_REPO_PATH: /home/runner/work/majestic-ui-data-source
 
       - name: Commit and push changes
         run: |
