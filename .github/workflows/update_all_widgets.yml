@@ -29,10 +29,12 @@ jobs:
       - name: Update All Widgets JSON
         run: |
           python scripts/update_all_widgets.py
+          cp all_widgets.json /home/runner/work/majestic-ui-flutter/majestic-ui-flutter/
 
       # Step 5: Commit and push changes
       - name: Commit and Push Changes
         run: |
+          cd /home/runner/work/majestic-ui-flutter/majestic-ui-data-source
           git config --global user.name MajesticUI BOT
           git config --global user.email bot@majesticui.com
           git add /home/runner/work/majestic-ui-flutter/majestic-ui-flutter/all_widgets.json
