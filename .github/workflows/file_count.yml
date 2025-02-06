@@ -17,7 +17,7 @@ jobs:
       - name: Checkout datasource repository
         uses: actions/checkout@v3
         with:
-          repository: Ronak99/Ronak99/majestic-ui-data-source
+          repository: Ronak99/majestic-ui-data-source
           path: datasource-repo
           token: ${{ secrets.PAT_TOKEN }}
 
