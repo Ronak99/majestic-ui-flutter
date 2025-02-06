@@ -19,7 +19,7 @@ jobs:
         with:
           repository: Ronak99/majestic-ui-data-source
           path: datasource-repo
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -40,3 +40,5 @@ jobs:
           git add file_count.json
           git commit -m "Update file count [skip ci]"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
