@@ -28,7 +28,7 @@ jobs:
       # Step 4: Run the update script
       - name: Update All Widgets JSON
         run: |
-          python scripts/update_all_widgets.py
+          python scripts/refresh.py
           cp all_widgets.json /home/runner/work/majestic-ui-flutter/majestic-ui-flutter/
 
       # Step 5: Commit and push changes
