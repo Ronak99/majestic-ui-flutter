@@ -3,7 +3,7 @@ name: Update All Widgets
 on:
   push:
     branches:
-      - refresh_widget_list
+      - refresh_widget_list_test
 
 jobs:
   update-all-widgets:
@@ -28,8 +28,8 @@ jobs:
       # Step 4: Run the update script
       - name: Update All Widgets JSON
         run: |
-          python scripts/update_all_widgets.py
-          cp all_widgets.json /home/runner/work/majestic-ui-flutter/majestic-ui-flutter/
+          python scripts/refresh.py
+          cp all_widgets.json /home/runner/work/majestic-ui-flutter/majestic-ui-data-source/
 
       # Step 5: Commit and push changes
       - name: Commit and Push Changes

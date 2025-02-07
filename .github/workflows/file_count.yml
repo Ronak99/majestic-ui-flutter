@@ -1,0 +1,44 @@
+name: File Count Publisher
+
+on:
+  push:
+    branches:
+      - refresh_widget_list
+
+jobs:
+  count-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout flutter repository
+        uses: actions/checkout@v3
+        with:
+          path: majestic-ui-flutter
+
+      - name: Checkout datasource repository
+        uses: actions/checkout@v3
+        with:
+          repository: Ronak99/majestic-ui-data-source
+          path: datasource-repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Count files and create JSON
+        run: python majestic-ui-flutter/.github/scripts/count_files.py
+        env:
+          FLUTTER_REPO_PATH: ./majestic-ui-flutter
+          DATASOURCE_REPO_PATH: /home/runner/work/majestic-ui-data-source
+
+      - name: Commit and push changes
+        run: |
+          cd majestic-ui-data-source
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add file_count.json
+          git commit -m "Update file count [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

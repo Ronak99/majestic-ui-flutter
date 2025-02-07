@@ -35,10 +35,11 @@ def scan_dart_projects(src_path):
         with open(pubspec_path, 'r') as f:
             pubspec_data = yaml.safe_load(f)
 
+        # Check whether to ignore this package
         should_ignore = pubspec_data.get('ignore', False)
-
         if should_ignore: continue
 
+        # Get the widget name
         widget_name = pubspec_data.get('name', '')
 
         # Prepare project info
@@ -46,11 +47,17 @@ def scan_dart_projects(src_path):
             "name": widget_name,
             "label": pubspec_data.get('label', ''),
             "description": pubspec_data.get('description', ''),
-            "files": [],
-            "dependencies": [dep for dep in pubspec_data.get('dependencies', {}).keys() if dep != "flutter"],
             "type": pubspec_data.get('type', 'widget'),
             "author": "Ronak99",
             "github": "https://github.com/Ronak99"
+        }
+
+        # Project file info
+        project_file_info = {
+            "name": widget_name,
+            "dependencies": [dep for dep in pubspec_data.get('dependencies', {}).keys() if dep != "flutter"],
+            "demo": "",
+            "files": [],
         }
 
         # Scan lib folder for Dart files
@@ -67,7 +74,7 @@ def scan_dart_projects(src_path):
             if os.path.exists(demo_file_path):
                 with open(demo_file_path, 'r') as f:
                     demo_code = f.read()
-                    project_info['demo'] = demo_code
+                    project_file_info['demo'] = demo_code
 
             for file_path in dart_files:
                 # Read file content
@@ -87,11 +94,15 @@ def scan_dart_projects(src_path):
                     else:
                         directory = f"lib/majestic/ui/{widget_name}/{rel_dir}"
 
-                project_info['files'].append({
+                project_file_info['files'].append({
                     "name": os.path.basename(file_path),
                     "dir": directory,
                     "content": content
                 })
+
+            # Write just the file info to dedicated file
+            with open(f'registry/{project_file_info["name"]}.json', 'w') as f:
+                json.dump(project_file_info, f, indent=2)
 
             projects.append(project_info)
 
@@ -104,7 +115,7 @@ def update_all_widgets():
     projects_data = scan_dart_projects(SRC_PATH)
     
     # Write to output file
-    with open('all_widgets.json', 'w') as f:
+    with open('registry/all_widgets.json', 'w') as f:
         json.dump(projects_data, f, indent=2)
     
     print(f"Scanned {len(projects_data)} projects. Results saved to project_scan_results.json")
