@@ -46,7 +46,6 @@ def scan_dart_projects(src_path):
         project_info = {
             "name": widget_name,
             "label": pubspec_data.get('label', ''),
-            "description": pubspec_data.get('description', ''),
             "type": pubspec_data.get('type', 'widget'),
             "author": "Ronak99",
             "github": "https://github.com/Ronak99"
@@ -55,6 +54,8 @@ def scan_dart_projects(src_path):
         # Project file info
         project_file_info = {
             "name": widget_name,
+            "label": pubspec_data.get('label', ''),
+            "description": pubspec_data.get('description', ''),
             "dependencies": [dep for dep in pubspec_data.get('dependencies', {}).keys() if dep != "flutter"],
             "demo": "",
             "files": [],

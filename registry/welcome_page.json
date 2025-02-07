@@ -1,5 +1,7 @@
 {
   "name": "welcome_page",
+  "label": "Welcome Page",
+  "description": "Beautiful welcome page for you to quickly get started.",
   "dependencies": [
     "flutter_svg"
   ],

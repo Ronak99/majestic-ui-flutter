@@ -1,5 +1,7 @@
 {
   "name": "categories_page",
+  "label": "Categories Page",
+  "description": "Categories Page with baked in state management.",
   "dependencies": [
     "provider"
   ],

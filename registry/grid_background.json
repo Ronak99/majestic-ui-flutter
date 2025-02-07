@@ -1,5 +1,7 @@
 {
   "name": "grid_background",
+  "label": "Grid Background",
+  "description": "Beautiful animated grid background inspired by CRED.",
   "dependencies": [],
   "demo": "import 'majestic/ui/grid_background/grid_background.dart';\nimport 'package:flutter/material.dart';\n\nclass AnimatedGridBackgroundDemo extends StatelessWidget {\n  const AnimatedGridBackgroundDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      backgroundColor: Colors.black,\n      // By default renders a white coloured grid, therefore looks best on a black background.\n      body: GridBackground(),\n    );\n  }\n}\n",
   "files": [

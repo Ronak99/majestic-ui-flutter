@@ -1,5 +1,7 @@
 {
   "name": "avatar",
+  "label": "Avatar",
+  "description": "An image element with a fallback for representing the user.",
   "dependencies": [
     "cached_network_image"
   ],

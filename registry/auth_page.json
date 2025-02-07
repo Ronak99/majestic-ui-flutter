@@ -1,5 +1,7 @@
 {
   "name": "auth_page",
+  "label": "Auth Page",
+  "description": "Authenticate your users in style.",
   "dependencies": [
     "auto_size_text"
   ],

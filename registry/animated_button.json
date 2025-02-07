@@ -1,5 +1,7 @@
 {
   "name": "animated_button",
+  "label": "Animated Button",
+  "description": "Beautiful animated button.",
   "dependencies": [
     "mesh_gradient"
   ],

@@ -1,5 +1,7 @@
 {
   "name": "star_rush_background",
+  "label": "Star Rush Background",
+  "description": "Beautiful package to elevate your app.",
   "dependencies": [],
   "demo": "import 'package:flutter/material.dart';\n\nimport 'majestic/ui/star_rush_background.dart';\n\nclass StarRushBackgroundDemo extends StatelessWidget {\n  const StarRushBackgroundDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      backgroundColor: Colors.black,\n      body: Stack(\n        children: [\n          StarRushBackground(\n            speed: 750,\n            maxRadius: 2,\n            minRadius: 1,\n            colors: [\n              Colors.blue[100]!,\n              Colors.blue[300]!,\n              Colors.red[200]!,\n              Colors.white,\n            ],\n          ),\n        ],\n      ),\n    );\n  }\n}\n",
   "files": [

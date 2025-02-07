@@ -1,5 +1,7 @@
 {
   "name": "profile_page",
+  "label": "Profile Page",
+  "description": "Generic, simple and ready to use profile page.",
   "dependencies": [],
   "demo": "import 'majestic/ui/profile_page/profile_page.dart';\nimport 'package:flutter/material.dart';\n\nclass ProfilePageDemo extends StatelessWidget {\n  const ProfilePageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const ProfilePage();\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const ProfilePage(),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n",
   "files": [

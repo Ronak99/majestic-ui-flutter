@@ -1,5 +1,7 @@
 {
   "name": "landing_page",
+  "label": "Landing Page",
+  "description": "A landing page with Salomon Bottom Navigation bar and state management.",
   "dependencies": [
     "provider",
     "salomon_bottom_bar"

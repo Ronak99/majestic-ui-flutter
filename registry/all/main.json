@@ -2,7 +2,6 @@
   {
     "name": "profile_page",
     "label": "Profile Page",
-    "description": "Generic, simple and ready to use profile page.",
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
@@ -10,7 +9,6 @@
   {
     "name": "star_rush_background",
     "label": "Star Rush Background",
-    "description": "Beautiful package to elevate your app.",
     "type": "widget",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
@@ -18,7 +16,6 @@
   {
     "name": "animated_button",
     "label": "Animated Button",
-    "description": "Beautiful animated button.",
     "type": "widget",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
@@ -26,7 +23,6 @@
   {
     "name": "auth_page",
     "label": "Auth Page",
-    "description": "Authenticate your users in style.",
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
@@ -34,7 +30,6 @@
   {
     "name": "grid_background",
     "label": "Grid Background",
-    "description": "Beautiful animated grid background inspired by CRED.",
     "type": "widget",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
@@ -42,7 +37,6 @@
   {
     "name": "avatar",
     "label": "Avatar",
-    "description": "An image element with a fallback for representing the user.",
     "type": "widget",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
@@ -50,7 +44,6 @@
   {
     "name": "welcome_page",
     "label": "Welcome Page",
-    "description": "Beautiful welcome page for you to quickly get started.",
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
@@ -58,7 +51,6 @@
   {
     "name": "landing_page",
     "label": "Landing Page",
-    "description": "A landing page with Salomon Bottom Navigation bar and state management.",
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
@@ -66,7 +58,6 @@
   {
     "name": "categories_page",
     "label": "Categories Page",
-    "description": "Categories Page with baked in state management.",
     "type": "page",
     "author": "Ronak99",
     "github": "https://github.com/Ronak99"
