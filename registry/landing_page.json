@@ -1,0 +1,30 @@
+{
+  "name": "landing_page",
+  "dependencies": [
+    "provider",
+    "salomon_bottom_bar"
+  ],
+  "demo": "import 'package:flutter/material.dart';\n\nimport 'majestic/ui/landing_page/landing_page.dart';\n\nclass LandingPageDemo extends StatelessWidget {\n  const LandingPageDemo({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const LandingPage();\n  }\n}\n\n// Or Navigate to this page\nclass ParentPage extends StatelessWidget {\n  const ParentPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Center(\n      child: TextButton(\n        onPressed: () => Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const LandingPage(),\n          ),\n        ),\n        child: const Text('Navigate'),\n      ),\n    );\n  }\n}\n",
+  "files": [
+    {
+      "name": "landing_page.dart",
+      "dir": "lib/majestic/ui/landing_page",
+      "content": "import 'package:flutter/material.dart';\nimport 'package:salomon_bottom_bar/salomon_bottom_bar.dart';\nimport 'package:provider/provider.dart';\n\nimport './provider/landing_page_state_provider.dart';\nimport './config/landing_page_config.dart';\n\nclass LandingPage extends StatelessWidget {\n  const LandingPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return ChangeNotifierProvider(\n      create: (_) => LandingPageStateProvider(),\n      builder: (context, _) {\n        final landingPageProvider =\n            Provider.of<LandingPageStateProvider>(context);\n\n        return Scaffold(\n          body: landingPageList[landingPageProvider.selectedIndex],\n          bottomNavigationBar: SalomonBottomBar(\n            currentIndex: landingPageProvider.selectedIndex,\n            onTap: landingPageProvider.onTabChange,\n            items: [\n              /// Home\n              SalomonBottomBarItem(\n                icon: const Icon(Icons.home),\n                title: const Text(\"Home\"),\n                selectedColor: Colors.purple,\n              ),\n\n              /// Likes\n              SalomonBottomBarItem(\n                icon: const Icon(Icons.favorite_border),\n                title: const Text(\"Likes\"),\n                selectedColor: Colors.pink,\n              ),\n\n              /// Search\n              SalomonBottomBarItem(\n                icon: const Icon(Icons.search),\n                title: const Text(\"Search\"),\n                selectedColor: Colors.orange,\n              ),\n\n              /// Profile\n              SalomonBottomBarItem(\n                icon: const Icon(Icons.person),\n                title: const Text(\"Profile\"),\n                selectedColor: Colors.teal,\n              ),\n            ],\n          ),\n        );\n      },\n    );\n  }\n}\n"
+    },
+    {
+      "name": "landing_page_config.dart",
+      "dir": "lib/majestic/ui/landing_page/config",
+      "content": "import '../pages/home_page.dart';\n\n/// This is where you are supposed to specify all of your pages.\nconst landingPageList = [\n  DemoPage(\n    title: \"Home\",\n    subtitle: \"Home\",\n  ),\n  DemoPage(\n    title: \"Likes\",\n    subtitle: \"Likes\",\n  ),\n  DemoPage(\n    title: \"Search\",\n    subtitle: \"Search\",\n  ),\n  DemoPage(\n    title: \"Profile\",\n    subtitle: \"Profile\",\n  ),\n];\n"
+    },
+    {
+      "name": "landing_page_state_provider.dart",
+      "dir": "lib/majestic/ui/landing_page/provider",
+      "content": "import 'package:flutter/material.dart';\n\nclass LandingPageStateProvider extends ChangeNotifier {\n  int _selectedIndex = 0;\n  int get selectedIndex => _selectedIndex;\n\n  void onTabChange(int i) {\n    _selectedIndex = i;\n    notifyListeners();\n  }\n}\n"
+    },
+    {
+      "name": "home_page.dart",
+      "dir": "lib/majestic/ui/landing_page/pages",
+      "content": "import 'package:flutter/material.dart';\n\nclass DemoPage extends StatelessWidget {\n  final String title;\n  final String subtitle;\n  const DemoPage({super.key, required this.title, required this.subtitle});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(centerTitle: true, title: Text(title)),\n      body: Center(\n        child: Text(subtitle),\n      ),\n    );\n  }\n}\n"
+    }
+  ]
+}
