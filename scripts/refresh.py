@@ -115,7 +115,7 @@ def update_all_widgets():
     projects_data = scan_dart_projects(SRC_PATH)
     
     # Write to output file
-    with open('registry/all_widgets.json', 'w') as f:
+    with open('registry/all/registry.json', 'w') as f:
         json.dump(projects_data, f, indent=2)
     
     print(f"Scanned {len(projects_data)} projects. Results saved to project_scan_results.json")
