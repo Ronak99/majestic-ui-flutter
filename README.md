@@ -12,10 +12,6 @@
   <a href="https://discord.gg/Kze5FUa6fx"><img alt="Discord" src="https://img.shields.io/discord/1244353658477613066?logo=discord&logoColor=fff&label=Join&color=%237289da"></a>
 </p>
 
-<div align="center">
- <img width="800" alt="Majestic UI" src="assets/majestic-ui-ss.png">
-</div>
-
 <p align="center">
   <a href="https://majesticui.com/installation">📚 Documentation</a> •
   <a href="https://majesticui.com/publish">📨 Publish</a>
@@ -24,6 +20,10 @@
 <p align="center">
   Majestic UI is a Flutter UI library / collection of widgets that provides a set of beautifully designed Flutter widgets ready to copy and paste into your project.
 </p>
+
+<div align="center">
+ <img width="800" alt="Majestic UI" src="assets/majestic-ui-ss.png">
+</div>
 
 ## Installation
 
