@@ -4,6 +4,7 @@ description: "Beautiful package to elevate your app."
 version: 0.0.1
 type: widget
 homepage:
+preview_url: https://majestic-flutter-web.web.app/#/star_rush_background
 
 environment:
   sdk: ^3.5.4

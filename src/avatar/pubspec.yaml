@@ -4,6 +4,7 @@ description: "An image element with a fallback for representing the user."
 version: 0.0.1
 type: widget
 author: Ronak99
+preview_url: https://majestic-flutter-web.web.app/#/avatar
 
 environment:
   sdk: ^3.5.4

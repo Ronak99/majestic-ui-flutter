@@ -4,6 +4,7 @@ description: "A landing page with Salomon Bottom Navigation bar and state manage
 version: 0.0.1
 type: page
 author: Ronak99
+preview_url: https://majestic-flutter-web.web.app/#/landing_page
 
 environment:
   sdk: ^3.5.4

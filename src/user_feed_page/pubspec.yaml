@@ -5,6 +5,7 @@ version: 0.0.1
 ignore: true
 type: page
 author: Ronak99
+preview_url: https://majestic-flutter-web.web.app/#/user_feed_page
 
 environment:
   sdk: ^3.5.4

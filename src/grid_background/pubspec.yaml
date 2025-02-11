@@ -4,6 +4,7 @@ description: "Beautiful animated grid background inspired by CRED."
 version: 0.0.1
 type: widget
 homepage:
+preview_url: https://majestic-flutter-web.web.app/#/grid_background
 
 environment:
   sdk: ^3.5.4

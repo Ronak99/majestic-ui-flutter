@@ -4,6 +4,7 @@ description: "Authenticate your users in style."
 version: 0.0.1
 type: page
 author: Ronak99
+preview_url: https://majestic-flutter-web.web.app/#/auth_page
 
 environment:
   sdk: ^3.5.4
