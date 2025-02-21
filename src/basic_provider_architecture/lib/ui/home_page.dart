@@ -1,5 +1,6 @@
-import 'package:basic_provider_architecture/ui/widgets/counter.dart';
 import 'package:flutter/material.dart';
+
+import 'widgets/counter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

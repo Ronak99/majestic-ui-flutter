@@ -1,5 +1,5 @@
-import 'package:basic_provider_architecture/registry.dart';
-import 'package:basic_provider_architecture/ui/home_page.dart';
+import './registry.dart';
+import './ui/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
