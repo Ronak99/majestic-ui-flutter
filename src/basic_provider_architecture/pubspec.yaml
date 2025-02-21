@@ -1,8 +1,7 @@
-name: basic_starter_architecture
-label: Starter
-description: "Extremely basic setup that you can import as soon as a new flutter project is created."
+name: basic_provider_architecture
+label: Basic Provider
+description: "Simplest Provider architecture that you can import as soon as a new flutter project is created."
 type: architecture
-author: Ronak99
 version: 0.0.1
 homepage:
 
@@ -13,6 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:
