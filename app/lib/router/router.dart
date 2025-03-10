@@ -3,6 +3,7 @@ import 'package:app/ui/avatar/demo.dart';
 import 'package:app/ui/categories_page/categories_page_demo.dart';
 import 'package:app/ui/grid_background/grid_background_demo.dart';
 import 'package:app/ui/home/demo.dart';
+import 'package:app/ui/multi_choice_picker.dart/demo.dart';
 import 'package:app/ui/star_rush_background/demo.dart';
 import 'package:app/ui/user_feed/demo.dart';
 import 'package:auth_page/auth_page.dart';
@@ -63,6 +64,10 @@ final router = GoRouter(
     GoRoute(
       path: '/profile_page',
       builder: (context, state) => const ProfilePage(),
+    ),
+    GoRoute(
+      path: '/multi_choice_picker',
+      builder: (context, state) => const MultiChoicePickerExample(),
     ),
   ],
 );

@@ -57,6 +57,8 @@ dependencies:
     path: "../src/auth_page"
   profile_page:
     path: "../src/profile_page"
+  multi_choice_picker:
+    path: "../src/multi_choice_picker"
 
 dev_dependencies:
   flutter_test:
